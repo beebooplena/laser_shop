@@ -15,5 +15,41 @@ body {
 
 header {
     width: 100%;
-    height: 170px;
+    height: 150px;
+    background-color:#faedcd
+}
+
+.header_image {
+    background: url('/media/laser_header.jpg')no-repeat center center;
+    background-size: 50%;
+    width: 100%;
+    height: 100px;
+    top: 30px;
+    
+    
+    
+    
+}
+
+.card {
+    float: right;
+    background-color: #faedcd;
+    right: 130px;
+    top: 40px;
+    opacity: 90%;
+    border-radius: 25px;
+}
+.card_colour {
+    background-color: #faedcd;
+    border-radius: 25px;
+
+}
+
+footer {
+    height: 40px;
+    width: 100%;
+    background-color:#faedcd
+
+   
+    
 }
