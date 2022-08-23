@@ -1,0 +1,19 @@
+/* borrowed some of this * code from Love Running project */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    background: url('/media/laser_main.jpg')no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 550px;
+}
+
+
+header {
+    width: 100%;
+    height: 170px;
+}
