@@ -38,12 +38,12 @@
 <body>
     <header>
         <div class="container ">
-            <div class="row">
+            <div class="row test">
                 <div class="col-4-md-auto logo">
                     <h1>laserwood</h1>
                 </div>
 
-                <div class="col-8-md-auto search">
+                <div class="col-4-md-auto search">
 
                     <form method="GET" action="">
                         <div class=" w-100">
@@ -60,46 +60,14 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <nav class="fixed-top">
-                    <ul class="nav_style">
-                         <li><a href="#">Products <i class="fas fa-pencil-alt"></i></a></li>
-                         <li><a href="#">Blog <i class="fa-regular fa-face-smile"></i></a></li>
-                         <li><a href="#">Home <i class="fa-solid fa-house"></i></a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Link
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-
-                                {% if request.user.is_authenticated %}
-                                <li><a class="dropdown-item" href="#">My account</a><i class="fa-solid fa-person"></i></li>
-
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                                {% else %}
-
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Register</a></li>
-                                <li><a class="dropdown-item" href="#">Login</a></li>
-                                {% endif %}
-                            </ul>
-                        </li>
-                    </ul>
-                
-
-
-
-
-                <li class="nav_style list-inline-item">
+            
+            <div class="col">
+                <li class="  bag-style list-inline-item">
                     <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                         href="">
-                        <div class="text-center">
-                            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                            <p class="my-0">
+                        <div class=" text-center">
+                            <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
+                            <p class=" bag-place my-0">
                                 {% if sum_total %}
                                 ${{ sum_total|floatformat:2 }}
                                 {% else %}
@@ -107,11 +75,46 @@
                                 {% endif %}
                             </p>
                         </div>
-
                     </a>
                 </li>
             </div>
-        </nav>
+        
+           
+            <div class="row">
+                <div class=" nav_style fixed-top">
+                    <ul >
+                         <li class="col-6 border same-nav list-inline-item nav-product-colour"><a class=" nav-colour remove-decoration href="#>Products <i class="fas fa-arrow-right"></i></a></li>
+                         <li class="col-6 border same-nav list-inline-item nav-blog-colour"><a class="nav-colour remove-decoration href="#> Blog <i class="fas fa-book-open"></i></a></li>
+                         <li class="col-6 border same-nav list-inline-item nav-home-colour"><a class="nav-colour remove-decoration href="#> Home</span> <i class="fas fa-home"></i></a></li>
+                        <li class=" border nav-profile-colour nav-drop remove-decoration same-nav col-6  nav-item dropdown">
+                            <a class=" nav-colour nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                 My Account<i class="fas fa-user"></i>
+                            </a>
+                            <ul class=" col-6 dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+                                {% if request.user.is_authenticated %}
+                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#"> account <i class="fas fa-user"></i></a></li>
+
+                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Logout <i class="fas fa-door-open"></i></a></li>
+                                {% else %}
+
+
+                                <li>
+                                    <hr class="col-6 dropdown-divider">
+                                </li>
+                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Register</a><i class="fas fa-user"></i></li>
+                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Login</a><i class="fas fa-user"></i></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        
+                        
+
+
+
+            
+    
 
 
 

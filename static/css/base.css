@@ -49,18 +49,91 @@ h1 {
     width: 40%;
 }
 
-nav {
-    width: 60%;
-    float: right;
-    font-size: large;
-}
+
 .nav_style {
+    
+    width: 100%;
     float: right;
-    padding: 5px;
-    list-style-type: none;
-    letter-spacing: 3px;
 }
 
+.remove-decoration {
+    text-decoration: none;
+}
+
+.bag-style {
+    float: right;
+    
+    
+    
+}
+
+.test {
+    width: 60%;
+}
+.bag-place {
+    bottom: 50px;
+    left: 40px;
+    
+    font-size: large;
+}
+
+
+    
+    
+    
+
+}
+
+
+.nav-item {
+    right: 9px;
+}
+.same-nav {
+    margin-top: 5px;
+    width: 11%;
+    float: right;
+    letter-spacing: 3px;
+    font-size: large;
+    
+    text-align: center;
+    list-style-type: none;
+    
+}
+.same {
+
+    float: right;
+    letter-spacing: 3px;
+    font-size: large;
+    
+    text-align: center;
+    list-style-type: none;
+    
+}
+.nav-drop {
+    width: 12%;
+}
+.nav-colour{
+    color: white;
+}
+
+
+.nav-home-colour {
+    background-color: cadetblue;
+    padding: 5px 5px 9px 5px;
+    color: white;
+    
+}
+.nav-blog-colour {
+    background-color: blueviolet;
+    padding: 5px 5px 9px 5px;
+}
+.nav-product-colour {
+    background-color: #e9c46a;
+    padding: 5px 5px 9px 5px;
+}
+.nav-profile-colour {
+    background-color: coral;
+}
 
 
 .card {
