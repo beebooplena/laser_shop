@@ -145,12 +145,13 @@
     {% endblock %}
 
     {% block postload_js%}
+    <script>
             //Credit: code institute from 'I think before I blog.
         setTimeout(function () {
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();
-        }, 2500);
+        }, 2500);</script>
     {% endblock %}
 
     <footer class=" fixed-bottom">

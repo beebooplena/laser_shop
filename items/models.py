@@ -4,7 +4,7 @@ from django.db import models
 
 class Item(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    engraved = models.CharField(max_length=35)
+    engraved = models.CharField(max_length=35, null=True, blank=True)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()

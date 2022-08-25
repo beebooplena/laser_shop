@@ -5,11 +5,58 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            {{ items }}
+        <div class="col ">
+
+
         </div>
     </div>
 </div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-8-md-auto">
+            {% for item in items %}
+
+            {% if item.discount == True %}
+            <div class="card " style="width: 18rem;">
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{item.image.url}}" alt="{{item.name}}">
+                </a>
+                <div class="card-body testo ">
+                    <h5 class="card-title"><strong>{{item.name}}</strong></h5>
+                    
+                    <p class="card-text text-danger">Get your {{item.discount_value}} <i class="fas fa-dollar-sign"></i> discoount! <i class="fas fa-cut"></i></i></p>
+                    <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+            
+            {% else%}
+
+            <div class="card " style="width: 18rem;">
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{item.image.url}}" alt="{{item.name}}">
+                </a>
+                <div class="card-body testo ">
+                    <h5 class="card-title"><strong>{{item.name}}</strong></h5>
+                    
+                    <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        
+            {% endif%}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+</div>
+
 
 
 {% endblock %}

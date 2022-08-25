@@ -8,9 +8,9 @@ def all_items(request):
 
     items = Item.objects.all()
 
-    context = {
+    RequestContext = {
         'items' : items,
     }
 
-    return render(request, 'items/items.html', context)
+    return render(request, 'items/items.html', RequestContext)
 
