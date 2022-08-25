@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
-    'items',
+    'items'
 
 ]
 
@@ -91,7 +91,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-beebooplena-lasershop-i01hkwz5hke.ws-eu62.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-beebooplena-lasershop-i01hkwz5hke.ws-eu63.gitpod.io']
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
