@@ -128,10 +128,30 @@
     {% endblock %}
 
     {% block content %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class=" col-4 ">
+                <!-- Credit: messages, code institute:'I think before I blog' -->
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                <!-- End of credit -->
+            </div>
+        </div>
+    </div>
     {% endblock %}
 
     {% block postload_js%}
-    {% endblock %}
+            //Credit: code institute from 'I think before I blog.
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+        {% endblock %}
 
     <footer class=" fixed-bottom">
 
