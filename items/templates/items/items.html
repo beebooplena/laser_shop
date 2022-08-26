@@ -21,10 +21,10 @@
 
             {% if item.discount == True %}
             <div class="card " style="width: 18rem;">
-                <a href="">
+                <a href="{% url 'item_detail' item.id %}">
                     <img class="card-img-top img-fluid" src="{{item.image.url}}" alt="{{item.name}}">
                 </a>
-                <div class="card-body testo ">
+                <div class="card-body card-size ">
                     <h5 class="card-title"><strong>{{item.name}}</strong></h5>
                     
                     <p class="card-text text-danger">Get your {{item.discount_value}} <i class="fas fa-dollar-sign"></i> discoount! <i class="fas fa-cut"></i></i></p>
@@ -36,10 +36,10 @@
             {% else%}
 
             <div class="card " style="width: 18rem;">
-                <a href="">
+                <a href="{% url 'item_detail' item.id %}">
                     <img class="card-img-top img-fluid" src="{{item.image.url}}" alt="{{item.name}}">
                 </a>
-                <div class="card-body testo ">
+                <div class="card-body card-size ">
                     <h5 class="card-title"><strong>{{item.name}}</strong></h5>
                     
                     <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>

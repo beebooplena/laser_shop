@@ -39,22 +39,29 @@ h1 {
     
 }
 
-.testo {
+.card-size {
     height: 200px;
     width: auto;
-    
 }
-.card {
-    justify-content: space-between;
-}
+
 .logo {
-    width: 100%;
-    
+    width: 100%;  
     text-align: center;
-    
-
 }
 
+
+.img-image {
+    height: 350px;
+    width: 345px;
+    border-radius: 25px;
+    padding-left: 8px;
+    margin-top: 20px;
+}
+
+.detail-card {
+    margin-top: 10px;
+    width: 90%;
+}
 .search {
     width: 50%;
     
