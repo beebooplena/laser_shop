@@ -43,7 +43,7 @@
                     <h5 class="card-title"><strong>{{item.name}}</strong></h5>
                     
                     <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>
-                    <a href="#" class="btn btn-primary">Read more</a>
+                    <a href="{% url 'item_detail' item.id %}" class="btn btn-primary">Read more</a>
                 </div>
             </div>
         

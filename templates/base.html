@@ -39,16 +39,19 @@
     <header>
         <div class="container ">
             <div class="row test">
+                
                 <div class="col-4-md-auto logo">
-                    <h1>laserwood</h1>
+                   <h1>laserwood</h1>
                 </div>
+                
 
                 <div class="col-4-md-auto search">
 
-                    <form method="GET" action="">
+                    <form method="GET" action="{% url 'items' %}">
+                        {% csrf_token %}
                         <div class=" w-100">
                             <input class="search-style form-control border border-black rounded-0" type="text" name="s"
-                                placeholder="Search our site">
+                                placeholder="Search in our store">
                             <div class="input-group-append">
                                 <button class="search-btn form-control btn btn-black border border-black rounded-0" type="submit">
                                     <span class="icon">

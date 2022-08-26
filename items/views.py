@@ -1,19 +1,35 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Item
+from django.contrib import messages
+from django.db.models import Q
+
 
 # Create your views here.
 
 def all_items(request):
-    """ A view to be able to show all items including search queries"""
+    """ This code is borrowed from boutique
+    Ado project.
+    A view to show all items, including search queries """
 
-    items = Item.objects.all()
+    items= Item.objects.all()
+    query = None
 
-    RequestContext = {
-        'items' : items,
+    if request.GET:
+        if 's' in request.GET:
+            query = request.GET['s']
+            if not query:
+                messages.error(request, "Please try again, You didn`t write any words.")
+                return redirect(reverse('items'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = items.filter(queries)
+
+    context = {
+        'items': products,
+        'search_items': query,
     }
 
-    return render(request, 'items/items.html', RequestContext)
-
+    return render(request, 'items/items.html', context)
 
 def item_detail(request, item_id):
     """ A view to be able to show one product and it`s details"""
