@@ -69,7 +69,8 @@ header {
 
 .detail-card {
     margin-top: 10px;
-    width: 90%;
+    width: 50%;
+    left: 100px;
 }
 .search {
     width: 50%;
@@ -181,6 +182,16 @@ header {
 }
 .card-img-top {
     border-radius: 25px;
+}
+.card-body-close {
+    left: 200px;
+}
+.close-up {
+    
+    width: 130%;
+}
+.card-text-close {
+    width: 100%;
 }
 
 footer {
@@ -334,8 +345,9 @@ footer {
         position: relative;
         
         
-        right: 40px;
+        right: 15px;
         top: 40px;
+        
        
     }
     .search {
@@ -350,8 +362,24 @@ footer {
     }
     footer {
         position: inherite;
-        height: 100px;
+        height: 40px;
+    }
+  
+    .img-image-close {
+        position: inherite;
+        height: fit-content;
+        padding-left: 0px;
+        
+    }
+  
+    .card-text-close {
+        right: 20px;
+
+    }
+    .card-body-close-up {
+        left: 40px;
     }
    
+
 
 }
