@@ -4,9 +4,11 @@
 
 {% block content %}
 <div class="card close-up" style="width: 28rem; height:600px;">
+  {{ bag_items }}
  
     <div class="card-body close-text">
         {% if show_bag %}
+          {{ bag_items }}
             <h5 class="card-title"><strong>{{item.name}}</strong></h5>
             <p class="card-text">{{item.description}}</p>
             <p class="card-text"><small >{{item.price}}</small></p>
