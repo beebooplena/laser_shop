@@ -15,7 +15,27 @@
     <p class="card-text"><small >{{item.price}}</small></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">first</li>
+    <li class="list-group-item">
+      <form class="form" action="{% url 'add_item_to_bag' item.id  %}" method="POST">
+        {% csrf_token %}
+        <div class="col">
+          <p class="mt-3"><strong>Amount:</strong></p>
+        <div class="col">
+          <input class="form-control amount_input" type="number" name="amount" value="1" min="1" max="20" data_item_id ={{item.id}} id="id_qty_{{ item.id}}">
+          <input class="form-control amount_input" type="text" name="engraved_name" value="Your engraved name" data_engraved_id ={{item.engraved}} id="id_qty_{{ item.engraved}}">
+        </div>
+        </div>
+        <div>
+          <a href="{% url 'items' %}" class="btn">
+            <span><strong>Keep shopping</strong></span>
+          </a>
+          <input type="submit" class="btn" value="Add item to Bag">
+        </div>
+        <div>
+          <input type="hidden" name="redirect_url" value="{{ request.path}}">
+        </div>
+      </form>
+    </li>
     <li class="list-group-item">A second item</li>
     <li class="list-group-item">A third item</li>
   </ul>
