@@ -37,11 +37,11 @@
 
 <body>
     <header>
-        <div class="container ">
+        <div class="container media-mobile ">
             <div class="row test">
                 
                 <div class="col-4-md-auto logo">
-                   <h1>laserwood</h1>
+                   <h1 class="logo-text">laserwood</h1>
                 </div>
                 
 
@@ -50,7 +50,7 @@
                     <form method="GET" action="{% url 'items' %}">
                         {% csrf_token %}
                         <div class=" w-100">
-                            <input class="search-style form-control border border-black rounded-0" type="text" name="s"
+                            <input class="search-style search-form form-control border border-black rounded-0" type="text" name="s"
                                 placeholder="Search in our store">
                             <div class="input-group-append">
                                 <button class="search-btn form-control btn btn-black border border-black rounded-0" type="submit">
@@ -62,6 +62,25 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-6 col-4-md-auto">
+                
+                    
+                    <li class="  col   list-inline-item nav-colour">
+                        <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            href="">
+                            <div class=" text-center">
+                                <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
+                                <p class=" bag-place my-0">
+                                    {% if sum_total %}
+                                    ${{ sum_total|floatformat:2 }}
+                                    {% else %}
+                                    $0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+        </div>
             </div>
             
               
@@ -71,49 +90,36 @@
             
         
            
-            <div class="row">
-                <div class=" nav_style fixed-top">
-                    <ul >
-                        <li class="  bag-style list-inline-item">
-                            <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                                href="">
-                                <div class=" text-center">
-                                    <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
-                                    <p class=" bag-place my-0">
-                                        {% if sum_total %}
-                                        ${{ sum_total|floatformat:2 }}
-                                        {% else %}
-                                        $0.00
-                                        {% endif %}
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                         <li class="col-6 border same-nav list-inline-item nav-product-colour"><a class=" nav-colour remove-decoration" href="{% url 'items' %}">Products <i class="fas fa-arrow-right"></i></a></li>
-                         <li class="col-6 border same-nav list-inline-item nav-blog-colour"><a class="nav-colour remove-decoration href="#> Blog <i class="fas fa-book-open"></i></a></li>
-                         <li class="col-6 border same-nav list-inline-item nav-home-colour"><a class="nav-colour remove-decoration href="#> Home</span> <i class="fas fa-home"></i></a></li>
-                        <li class=" border nav-profile-colour nav-drop remove-decoration same-nav col-6  nav-item dropdown">
-                            <a class=" nav-colour nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+  
+                    <div class=" row testtest fixed-top">
+
+                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Products <i class="fas fa-arrow-right"></i></a></li>
+                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-blog-colour"><a class="nav-colour remove-decoration" href="#"> Blog <i class="fas fa-book-open"></i></a></li>
+                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-home-colour"><a class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i class="fas fa-home"></i></a></li>
+                        <li class=" border nav-profile-colour list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
+                            <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                  My Account<i class="fas fa-user"></i>
                             </a>
-                            <ul class=" col-6 dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 
                                 {% if request.user.is_authenticated %}
-                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#"> account <i class="fas fa-user"></i></a></li>
+                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#"> account <i class="fas fa-user"></i></a></li>
 
-                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Logout <i class="fas fa-door-open"></i></a></li>
+                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Logout <i class="fas fa-door-open"></i></a></li>
                                 {% else %}
 
 
                                 <li>
-                                    <hr class="col-6 dropdown-divider">
+                                    <hr class="col-6 col-4-md-auto dropdown-divider">
                                 </li>
-                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Register</a><i class="fas fa-user"></i></li>
-                                <li><a class="col-6 same dropdown-item nav-profile-colour" href="#">Login</a><i class="fas fa-user"></i></li>
+                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Register</a><i class="fas fa-user"></i></li>
+                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Login</a><i class="fas fa-user"></i></li>
                                 {% endif %}
                             </ul>
                         </li>
+                    </div>
+                    
                         
                         
 

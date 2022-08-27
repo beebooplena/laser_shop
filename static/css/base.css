@@ -10,14 +10,15 @@ body {
     font-weight: 700;
     background: url('/media/laser_main.jpg')no-repeat center center;
     background-size: cover;
-    width: 100%;
-    height: 550px;
+    
+    height: 750px;
 }
 
 
 header {
-    width: 100%;
+    
     height: 170px;
+   
     background-color:#faedcd
 }
 
@@ -29,14 +30,25 @@ header {
     border-radius: 25px;
     
 }
-h1 {
+.logo-text {
     width:50%;
     font-size: 68px;
     font-weight: bold;
     text-transform: uppercase;
     color: #ab7e52;
     text-shadow: 4px 4px 4px rgb(108, 106, 106);
+    float: right; 
+    text-align: end;
     
+}
+.logo {
+    width: 95%;
+    left: auto;
+    
+    
+}
+.test {
+    width: 100%;
 }
 
 .card-size {
@@ -44,10 +56,7 @@ h1 {
     width: auto;
 }
 
-.logo {
-    width: 100%;  
-    text-align: center;
-}
+
 
 
 .img-image {
@@ -67,18 +76,21 @@ h1 {
     
     
 }
+.search-form {
+    width: 80%;
+}
 .search-btn {
     background-color: #26b0e6;
+    width: 80%;
     }
-
-
-
 
 .nav_style {
     
     width: 100%;
     float: right;
+  
 }
+
 
 .remove-decoration {
     text-decoration: none;
@@ -86,51 +98,52 @@ h1 {
 
 .bag-style {
     float: right;
-    
-    
-    
+      
 }
 
-.test {
-    width: 60%;
-    
-}
+
 .bag-place {
-    bottom: 50px;
-    left: 40px;
+    
     
     font-size: large;
+    background-color: white;
+    width: 40%;
+    float: right;
 }
+
 
 
 
 .same-nav {
     margin-top: 5px;
     width: 11%;
-    float: right;
-    letter-spacing: 3px;
+    float: left;
+    letter-spacing: 2px;
     font-size: large;
-    
     text-align: center;
     list-style-type: none;
+    right: 5px;
     
 }
+.testtest {
+    float: right;
+}
 .same {
-
     float: right;
     letter-spacing: 3px;
     font-size: large;
-    
     text-align: center;
     list-style-type: none;
     
 }
 .nav-drop {
-    width: 12%;
-    right: 10px;
+    width: 14%;
+    left: 1px;
 }
 .nav-colour{
     color: white;
+    font-size: medium;
+    display:grid;
 }
 
 
@@ -171,10 +184,174 @@ h1 {
 }
 
 footer {
+    
     height: 40px;
     width: 100%;
     background-color:#faedcd
+   
+}
 
+
+@media screen and (max-width:878px) {
+    header {
+        position: inherite;
+        
+    }
+
+
+    .logo-text {
+        position: inherit;
+        width:40%;
+        font-size: 48px;
+       
+        text-align:justify;
+        
+    }
+    .logo {
+        position: inherit;
+        width: 100%;
+    
+    }
+   
+       
+    .nav-colour{
+        position: inherit;
+        display:grid;
+        
+        
+        
+        font-size:small;
+    }
+    .same {
+        position: inherit;
+        width: 40%;
+    }
+    .search-form {
+        position: inherite;
+        
+        margin-top: 10px;
+    }
+    .search-btn {
+        position: inherite;
+        
+        
+        }
+ 
+}
+@media screen and (max-width:649px) {
    
     
+    .logo-text {
+        position: inherit;
+        width:40%;
+        font-size: 48px;
+        height: max-content;
+       
+        text-align:end;
+        
+        margin-right: 100px;
+        margin-top: 75px;
+        
+    }
+    .test {
+        position: inherit;
+        width: 100%;
+    }
+    .logo {
+        position: inherit;
+        display: block;
+        width: 100%;
+    
+    }
+    .testtest {
+        width: 140%;
+        
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .same {
+        position: inherit;
+        width: 50%;
+    }
+    .search-form {
+        position: relative;
+        
+        bottom: 60px;
+        
+        
+    }
+    .search {
+        position: inherite;
+        width: 40%;
+    }
+    .search-btn {
+        position: relative;
+        
+        bottom: 60px;
+       }
+    .nav-drop {
+        width: 30%;
+        left: 1px;
+        }
+      
+    .card {
+        position: relative;
+            
+            
+        right: 220px;
+        top: 40px;
+           
+        }
+    .card_colour {
+        background-color: #faedcd;
+        border-radius: 25px;
+        font-size: x-small;
+        }
+    .card-img-top {
+            border-radius: 25px;
+        }
+
+}
+@media screen and (max-width:360px) {
+    header {
+        
+        height: 190px;
+    }
+  
+    .logo-text {
+        position: inherit;
+        width:10%;
+        font-size: 28px;
+        height: max-content;
+       
+        text-align:end;
+        
+        margin-right: 129px;
+        margin-top: 75px;
+        
+    }
+    .card {
+        position: relative;
+        
+        
+        right: 40px;
+        top: 40px;
+       
+    }
+    .search {
+        position: inherite;
+        width: 40%;
+    }
+    .testtest {
+        width: 140%;
+        
+        margin-left: 2px;
+        margin-right: 3px;
+    }
+    footer {
+        position: inherite;
+        height: 100px;
+    }
+   
+
 }

@@ -25,7 +25,7 @@ def all_items(request):
             products = items.filter(queries)
 
     context = {
-        'items': products,
+        'items': items,
         'search_items': query,
     }
 
