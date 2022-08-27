@@ -22,7 +22,7 @@ def all_items(request):
                 return redirect(reverse('items'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = items.filter(queries)
+            items = items.filter(queries)
 
     context = {
         'items': items,

@@ -3,29 +3,37 @@
 
 
 {% block content %}
-<div class="row detail-card ">
-    
-    <div class="col close-up ">
-        <div class="card-body-close card mb-3" style=" width:auto; height: 400px;">
-            <div class="  card-body-close-up row g-0">
-              <div class="col">
-                <a  href="{{ item.image.url}}" target="_blank">
-                    <img class="img-image img-image-close "src="{{item.image.url}}" alt="{{item.name}}">
-                </a>
-                
-              </div>
-              <div class="col close-up">
-                <div class="col-md-4">
-                  <h5 class="card-title"><strong>{{item.name}}</strong></h5>
-                  <p class="card-text card-text-close">{{item.description}}</p>
-                  <p class="card-text"><small class="text-muted">{{item.price}}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-    </div>
+
+
+
+
+<div class="card close-up" style="width: 28rem; height:600px;">
+  <a  href="{{ item.image.url}}" target="_blank">
+    <img class=" img-image-close "src="{{item.image.url}}" alt="{{item.name}}">
+</a>
+  <div class="card-body close-text">
+    <h5 class="card-title"><strong>{{item.name}}</strong></h5>
+    <p class="card-text">{{item.description}}</p>
+    <p class="card-text"><small >{{item.price}}</small></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">first</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">BUY</a>
+  </div>
 </div>
+
+
+
+
+
+
+
 
 
 

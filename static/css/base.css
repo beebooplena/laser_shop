@@ -183,16 +183,7 @@ header {
 .card-img-top {
     border-radius: 25px;
 }
-.card-body-close {
-    left: 200px;
-}
-.close-up {
-    
-    width: 130%;
-}
-.card-text-close {
-    width: 100%;
-}
+
 
 footer {
     
@@ -200,6 +191,22 @@ footer {
     width: 100%;
     background-color:#faedcd
    
+}
+
+.img-image-close {
+    height: 210px;
+    width: 100%;
+    border-radius: 25px;
+    
+    
+}
+.close-up {
+    right: 500px;
+    
+}
+.close-text {
+    flex: none;
+
 }
 
 
@@ -365,20 +372,7 @@ footer {
         height: 40px;
     }
   
-    .img-image-close {
-        position: inherite;
-        height: fit-content;
-        padding-left: 0px;
-        
-    }
   
-    .card-text-close {
-        right: 20px;
-
-    }
-    .card-body-close-up {
-        left: 40px;
-    }
    
 
 
