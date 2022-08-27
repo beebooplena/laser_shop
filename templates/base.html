@@ -67,7 +67,7 @@
                     
                     <li class="  col   list-inline-item nav-colour">
                         <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="">
+                            href="{% url 'show_bag' %}">
                             <div class=" text-center">
                                 <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
                                 <p class=" bag-place my-0">
@@ -93,7 +93,7 @@
   
                     <div class=" row testtest fixed-top">
 
-                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Products <i class="fas fa-arrow-right"></i></a></li>
+                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i class="fas fa-arrow-right"></i></a></li>
                          <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-blog-colour"><a class="nav-colour remove-decoration" href="#"> Blog <i class="fas fa-book-open"></i></a></li>
                          <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-home-colour"><a class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i class="fas fa-home"></i></a></li>
                         <li class=" border nav-profile-colour list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
