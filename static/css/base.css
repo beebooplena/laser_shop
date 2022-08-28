@@ -209,6 +209,11 @@ footer {
 
 }
 
+.cash {
+    left: 500px;
+    top: 300px;
+}
+
 
 @media screen and (max-width:878px) {
     header {

@@ -3,31 +3,58 @@
 
 
 {% block content %}
-<div class="card close-up" style="width: 28rem; height:600px;">
-  {{ bag_items }}
+
+  
  
-    <div class="card-body close-text">
-        {% if show_bag %}
-          {{ bag_items }}
-            <h5 class="card-title"><strong>{{item.name}}</strong></h5>
-            <p class="card-text">{{item.description}}</p>
-            <p class="card-text"><small >{{item.price}}</small></p>
+    
+        {% if bag_items %}
+          {% for item in bag_items %}
+          <div class="card card close-up" style=" display:flexbox; width: 11rem; height:200px;">
+            <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
+            
+            <ul class="list-group list-group-flush">
+              
+                
+              <li class="list-group-item">Amount: {{item.amount}}</li>
+              <li class="list-group-item">{{item.item.name}}</li>
+              <li class="list-group-item">{{item.item.engraved}}</li>
+              <li class="list-group-item">{{item.item.sku|upper}}</li>
+              
+              <li class="list-group-item">{{item.item.price}}</li>
+              <li class="list-group-item"><a href="#" class="card-link">Card link</a></li>
+            </ul>
+          </div>
+        
+          
+        
+            {% endfor %}
+            <div class="card cash">
+              <div class="card-body">
+                <p>Your total is ${{ sum_total|floatformat:2 }} including shipping!</p>
+              </div>
+              <a href="{% url 'items' %}" class="btn btn-primary">Keep shopping</a>
+              <li class="list-group-item"></li>
+            
+              
+              <a href="#" class="btn btn-primary">Secure Checkout</a>
+              <li class="list-group-item"></li>
+            
+          </div>
         {% else %}
-        <h5 class="card-title"><strong> Your bag is empty</strong></h5>
-        <a href="{% url 'items' %}" class="card-link"><span>Keep shopping</span> <i class="fas fa-arrow-right"></i></a>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><strong> Your bag is empty</strong></h5>
+            
+       
+            <a href="{% url 'items' %}" class="card-link"><span>Keep shopping</span> <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+       
+       
         {% endif %}
       
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">first</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">BUY</a>
-    </div>
-  </div>
+
   
 
 {% endblock %}
