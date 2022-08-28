@@ -14,9 +14,9 @@ def bag_contents(request):
     for item_id, amount in bag.items():
         item = get_object_or_404(Item, pk=item_id)
         if item.discount is True:
-            total += amount * (item.price - item.discount_value) 
+            total += amount * (item.price - item.discount_value) + delivery
         else:
-            total += amount * item.price
+            total += amount * item.price + delivery
             item_many += amount
        
 
@@ -27,7 +27,9 @@ def bag_contents(request):
 
         })
 
-    sum_total = total + delivery
+            
+    sum_total = total
+           
 
 
     context = {
