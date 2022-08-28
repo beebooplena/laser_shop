@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from items.forms import EngravedForm
 from .models import Item
 from django.contrib import messages
 from django.db.models import Q
+
+
 
 
 # Create your views here.
@@ -31,14 +34,21 @@ def all_items(request):
 
     return render(request, 'items/items.html', context)
 
+
 def item_detail(request, item_id):
     """ A view to be able to show one product and it`s details"""
+   
 
     item = get_object_or_404(Item, pk=item_id)
+   
+
+    form = EngravedForm()
 
     context = {
         'item' : item,
+        'form': form,
+        
     }
 
-    return render(request, 'items/item_detail.html',context)
+    return render(request, 'items/item_detail.html', context)
 
