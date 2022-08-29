@@ -41,7 +41,7 @@ def bag_contents(request):
         'item_many': item_many,
         'delivery': delivery,
         'sum_total': sum_total,
-        'engraved_name': values.get('name'),
+        
           
     }
     return context
