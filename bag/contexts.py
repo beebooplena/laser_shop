@@ -6,6 +6,9 @@ from items.models import Item
 
 
 def bag_contents(request):
+    """
+    Shopping bag, code inspired by boutique ado code institute project.
+    """
     bag_items = []
     total = 0
     item_many = 0
@@ -37,7 +40,9 @@ def bag_contents(request):
         'total': total,
         'item_many': item_many,
         'delivery': delivery,
-        'sum_total': sum_total  
+        'sum_total': sum_total,
+        'engraved_name': values.get('name'),
+          
     }
     return context
 
