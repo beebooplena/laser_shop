@@ -1,1 +1,1 @@
-web:gunicorn laser_shop.wsgi:application
+web: gunicorn laser_shop.wsgi:application
