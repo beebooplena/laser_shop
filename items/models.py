@@ -14,11 +14,10 @@ class Item(models.Model):
     discount_value = models.DecimalField(max_digits=6, decimal_places=2, blank=True,
                                          null=True, default=0)
     discount = models.BooleanField(default=False, null=True, blank=True)
-
+    """
     def __str__(self):
         return self.name
-
-    
+    """
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'

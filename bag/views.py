@@ -17,30 +17,35 @@ def show_bag(request):
 
 def add_item_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
+    
 
-    amount = int(request.POST.get('amount'))
+    if request.method == 'GET':
+        request.session.pop('bag')
+        return redirect(request.path)
     redirect_url = request.POST.get('redirect_url')
-    engraved_name = str(request.POST.get('engraved_name'))
-    print("****************")
+    amount = int(request.POST.get('amount'))
+    engrave = str(request.POST.get('engraved_name'))
     
+    
+    #print(engrave)
     bag = request.session.get('bag', {})
-
     
-    if item_id in list(bag.keys()):
-        
-     
-        ["engraved_name"].append({engraved_name})
-        
-        print("*******")
-        print(engraved_name)
-
+    if item_id in bag.keys():
+        for id in bag.keys():
+            if id == item_id:
+                new_item = {
+                    'name': engrave,
+                    'amount': amount
+                }
+                bag[id] = new_item
     else:
-
-        if item_id in list(bag.keys()):
-            bag[item_id] += amount
-        else:
-            bag[item_id] = amount
-
+        new_item = {
+                'name': engrave,
+                'amount': amount
+        }
+        bag[item_id] = new_item
     request.session['bag'] = bag
-    print(bag)
+    
     return redirect(redirect_url)
+
+
