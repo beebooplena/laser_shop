@@ -44,7 +44,9 @@ def add_item_to_bag(request, item_id):
                 'amount': amount
         }
         bag[item_id] = new_item
+        
     request.session['bag'] = bag
+  
     
     return redirect(redirect_url)
 

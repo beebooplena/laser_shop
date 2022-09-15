@@ -25,15 +25,24 @@ def bag_contents(request):
         else:
             total += amount * item.price + delivery
             item_many += amount
+        
 
         bag_items.append({
             'item_id': item_id,
             'amount': amount,
             'item': item,
             'engraved_name': values.get('name'),
-        })
-
+            })
+        print("*********")
+        print(bag)
+        print("*********")
+        
+      
+        
+       
+    
     sum_total = total
+    
             
     context = {
         'bag_items': bag_items,
@@ -42,8 +51,17 @@ def bag_contents(request):
         'delivery': delivery,
         'sum_total': sum_total,
         
+        
+     
+        
+        
+   
+        
           
     }
+    print("############")
+    print(bag_items)
+    print("############")
     return context
 
         
