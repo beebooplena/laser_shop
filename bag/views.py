@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from items.forms import EngravedForm
-
+import uuid
 
 
 
@@ -26,28 +26,27 @@ def add_item_to_bag(request, item_id):
     amount = int(request.POST.get('amount'))
     engrave = str(request.POST.get('engraved_name'))
     
-    
-    #print(engrave)
+   
+    # print(engrave)
     bag = request.session.get('bag', {})
     
-    if item_id in bag.keys():
-        for id in bag.keys():
-            if id == item_id:
-                new_item = {
-                    'name': engrave,
-                    'amount': amount
-                }
-                bag[id] = new_item
-    else:
-        new_item = {
-                'name': engrave,
-                'amount': amount
-        }
-        bag[item_id] = new_item
+    # dict_items([('item_id', {'name': 'tow', 'amount': 4})])
+    new_item = {
+            'name': engrave,
+            'amount': amount
+    }
+    bag[get_id()] = new_item
         
     request.session['bag'] = bag
   
     
     return redirect(redirect_url)
+
+
+def get_id():
+    """
+    Generate a random, unique order number using UUID
+    """
+    return uuid.uuid4().hex.upper()
 
 

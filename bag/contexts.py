@@ -60,7 +60,7 @@ def bag_contents(request):
           
     }
     print("############")
-    print(bag_items)
+    print(bag.items())
     print("############")
     return context
 
