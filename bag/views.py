@@ -4,7 +4,7 @@ from items.forms import EngravedForm
 import uuid
 
 
-
+globalId = 5000
 
 # Create your views here.
 
@@ -17,6 +17,7 @@ def show_bag(request):
 
 def add_item_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
+    global globalId
     
 
     if request.method == 'GET':
@@ -33,20 +34,15 @@ def add_item_to_bag(request, item_id):
     # dict_items([('item_id', {'name': 'tow', 'amount': 4})])
     new_item = {
             'name': engrave,
-            'amount': amount
+            'amount': amount,
+            'id': item_id
     }
-    bag[get_id()] = new_item
+    bag[globalId] = new_item
+    globalId += 1
         
     request.session['bag'] = bag
   
     
     return redirect(redirect_url)
-
-
-def get_id():
-    """
-    Generate a random, unique order number using UUID
-    """
-    return uuid.uuid4().hex.upper()
 
 

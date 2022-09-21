@@ -46,7 +46,7 @@ def item_detail(request, item_id):
 
     context = {
         'item' : item,
-        'form': form,
+        # 'form': form,
         
     }
 

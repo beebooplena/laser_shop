@@ -15,10 +15,9 @@ def bag_contents(request):
 
     delivery = settings.STANDARD_DELIVERY_PRICE
     bag = request.session.get('bag', {})
-    
 
     for item_id, values in bag.items():
-        item = get_object_or_404(Item, pk=item_id)
+        item = get_object_or_404(Item, pk=values['id'])
         amount = values.get('amount')
         if item.discount is True:
             total += amount * (item.price - item.discount_value) + delivery
