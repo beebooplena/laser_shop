@@ -12,6 +12,7 @@ def bag_contents(request):
     bag_items = []
     total = 0
     item_many = 0
+    sumup = None
 
     delivery = settings.STANDARD_DELIVERY_PRICE
     bag = request.session.get('bag', {})
@@ -20,17 +21,22 @@ def bag_contents(request):
         item = get_object_or_404(Item, pk=values['id'])
         amount = values.get('amount')
         if item.discount is True:
-            total += amount * (item.price - item.discount_value) + delivery
-        else:
-            total += amount * item.price + delivery
+            total += amount * (item.price - item.discount_value)
             item_many += amount
+            sumup = total + delivery
+        else:
+            total += amount * item.price
+            item_many += amount
+            sumup = total + delivery
+        
+
         
 
         bag_items.append({
             'item_id': item_id,
             'amount': amount,
             'item': item,
-            'engraved_name': values.get('name'),
+            
             })
         print("*********")
         print(bag)
@@ -40,7 +46,7 @@ def bag_contents(request):
         
        
     
-    sum_total = total
+    sum_total = sumup
     
             
     context = {

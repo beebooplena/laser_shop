@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
-from items.forms import EngravedForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+
+
 import uuid
 
 
@@ -26,17 +27,12 @@ def add_item_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     amount = int(request.POST.get('amount'))
     engrave = str(request.POST.get('engraved_name'))
-    
-   
-    # print(engrave)
     bag = request.session.get('bag', {})
-    
-    # dict_items([('item_id', {'name': 'tow', 'amount': 4})])
     new_item = {
-            'name': engrave,
-            'amount': amount,
-            'id': item_id
-    }
+        'name': engrave,
+        'amount': amount,
+        'id': item_id
+        }
     bag[globalId] = new_item
     globalId += 1
         
