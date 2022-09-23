@@ -9,7 +9,8 @@
     
         {% if bag_items %}
           {% for item in bag_items %}
-          <div class="card card close-up" style=" display:flexbox; width: 11rem; height:200px;">
+          
+          <div class="card card close-up" style=" display:flexbox; ">
             <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
             
             <ul class="list-group list-group-flush">
@@ -17,13 +18,16 @@
                 
               <li class="list-group-item">Amount: {{item.amount}}</li>
               <li class="list-group-item">{{item.item.name}}</li>
-              <li class="list-group-item">{{item.engraved_name}}</li>
-              <li class="list-group-item">{{item.item.sku|upper}}</li>
+              <li class="list-group-item">Your engraved name:</li>
+              <li class="list-group-item"> {{item.engraved_name}}</li>
+              <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
               
-              <li class="list-group-item">{{item.item.price}}</li>
+              <li class="list-group-item">Price: {{item.item.price}} $</li>
               <li class="list-group-item"><a href="#" class="card-link">Card link</a></li>
             </ul>
           </div>
+        
+        
  
 
         
@@ -32,8 +36,8 @@
             {% endfor %}
             <div class="card cash">
               <div class="card-body">
-                <p>Your total is ${{ sum_total|floatformat:2 }}!</p>
-                <p> Delivery cost: ${{delivery|floatformat:2}}</p>
+                <p class="stylecheck">Your total is ${{ sum_total|floatformat:2 }}!</p>
+                <p class="stylecheck"> Delivery cost: ${{delivery|floatformat:2}}</p>
               </div>
               <a href="{% url 'items' %}" class="btn btn-primary">Keep shopping</a>
               <li class="list-group-item"></li>

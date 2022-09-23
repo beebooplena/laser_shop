@@ -187,7 +187,7 @@ header {
 
 footer {
     
-    height: 40px;
+    height: 30px;
     width: 100%;
     background-color:#faedcd
    
@@ -201,7 +201,9 @@ footer {
     
 }
 .close-up {
-    right: 500px;
+    width: min-content;
+    height: min-content;
+    right: 900px;
     
 }
 .close-text {
@@ -210,8 +212,9 @@ footer {
 }
 
 .cash {
-    left: 500px;
-    top: 300px;
+    position: fixed;
+    right: 20px;
+    top: 200px;
 }
 
 
@@ -336,6 +339,9 @@ footer {
 
 }
 @media screen and (max-width:360px) {
+    body {
+        height: 1300px
+    }
     header {
         
         height: 190px;
@@ -353,8 +359,11 @@ footer {
         margin-top: 75px;
         
     }
+
     .card {
         position: relative;
+        width: min-content;
+        height: min-content;
         
         
         right: 15px;
@@ -362,9 +371,31 @@ footer {
         
        
     }
+    .card-body {
+        padding: 4px;
+    }
+
+    .stylecheck{
+        width: max-content;
+    }
+        
+        
+    
+    .cash {
+        flex-direction: unset;
+        height: 100px;
+        bottom: 20px;
+    }
+   
     .search {
         position: inherite;
         width: 40%;
+    }
+    .search-form {
+        width: 130%;
+    }
+    .search-btn {
+        width: auto;
     }
     .testtest {
         width: 140%;
@@ -375,6 +406,26 @@ footer {
     footer {
         position: inherite;
         height: 40px;
+    }
+    .list-group-item {
+        position: inherit;
+        padding: 4px;
+        width: min-content;
+        height: min-content;
+    }
+    .img-fluid {
+        width: min-content;
+        height: min-content;
+        
+    }
+    .close-up {
+        position: inherit;
+        width: min-content;
+        height: min-content;
+    }
+    .bag-place {
+        position: inherit;
+        width: 50%;
     }
   
   
