@@ -36,6 +36,7 @@ def bag_contents(request):
             'item_id': item_id,
             'amount': amount,
             'item': item,
+            'engraved_name': values.get('name'),
             
             })
         print("*********")

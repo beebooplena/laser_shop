@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib import messages
+from items.models import Item
 
 
-import uuid
+
 
 
 globalId = 5000
@@ -42,3 +43,25 @@ def add_item_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
+
+
+def remove_bag(request, item_id):
+    """Remove the item from the shopping bag"""
+    
+
+        
+    
+
+    
+        
+    bag = request.session.get('bag', {})
+
+        
+    bag.pop(item_id)
+    print("YEEEEES")
+    request.session['bag'] = bag
+        
+        
+    return redirect('show_bag')
+
+    

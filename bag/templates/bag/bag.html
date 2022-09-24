@@ -16,19 +16,32 @@
             <ul class="list-group list-group-flush">
               
                 
-              <li class="list-group-item">Amount: {{item.amount}}</li>
+              <li class="list-group-item">Amount: 
+                <form class="form update-form" method="POST" action="{url 'update_bag' item.id}">
+                  {% csrf_token %}
+                  <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20" data_item_id ={{item.item.id}} id="id_qty_{{ item.item.id}}">
+
+                </form>
+                <a class="update-link text-info"> <style>
+                  
+                  a{
+                      cursor: pointer;
+                    }
+              </style><small>Update</small></a>
+              </li>
               <li class="list-group-item">{{item.item.name}}</li>
               <li class="list-group-item">Your engraved name:</li>
+              
               <li class="list-group-item"> {{item.engraved_name}}</li>
               <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
               
               <li class="list-group-item">Price: {{item.item.price}} $</li>
-              <li class="list-group-item"><a href="#" class="card-link">Card link</a></li>
+              <li class="list-group-item"><a class="remove-item btn text-danger"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete!Are  you sure?');">Delete</a> </li>
             </ul>
           </div>
         
         
- 
+          
 
         
           
@@ -54,7 +67,7 @@
             
        
             <a href="{% url 'items' %}" class="card-link"><span>Keep shopping</span> <i class="fas fa-arrow-right"></i></a>
-            <a href="#" class="card-link">Another link</a>
+            
           </div>
         </div>
        
@@ -62,6 +75,7 @@
         {% endif %}
       
 
-  
-
 {% endblock %}
+
+
+
