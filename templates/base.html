@@ -21,11 +21,11 @@
 
     {% block mainjs %}
     <script src="https://kit.fontawesome.com/4a24757097.js" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    
+
     {% endblock %}
 
     {% block extra_js%}
@@ -39,21 +39,22 @@
     <header>
         <div class="container media-mobile ">
             <div class="row test">
-                
+
                 <div class="col-4-md-auto logo">
-                   <h1 class="logo-text">laserwood</h1>
+                    <h1 class="logo-text">laserwood</h1>
                 </div>
-                
+
 
                 <div class="col-4-md-auto search">
 
                     <form method="GET" action="{% url 'items' %}">
                         {% csrf_token %}
                         <div class=" w-100">
-                            <input class="search-style search-form form-control border border-black rounded-0" type="text" name="s"
-                                placeholder="Search in our store">
+                            <input class="search-style search-form form-control border border-black rounded-0"
+                                type="text" name="s" placeholder="Search in our store">
                             <div class="input-group-append">
-                                <button class="search-btn form-control btn btn-black border border-black rounded-0" type="submit">
+                                <button class="search-btn form-control btn btn-black border border-black rounded-0"
+                                    type="submit">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
                                     </span>
@@ -62,9 +63,10 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-6 col-4-md-auto">
                 
-                    
+                <div class="col-6 col-4-md-auto">
+
+
                     <li class="  col   list-inline-item nav-colour">
                         <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                             href="{% url 'show_bag' %}">
@@ -80,53 +82,63 @@
                             </div>
                         </a>
                     </li>
-        </div>
+                </div>
             </div>
-            
-              
-            
-        
-            
-            
-        
-           
-  
-                    <div class=" row testtest fixed-top">
-
-                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i class="fas fa-arrow-right"></i></a></li>
-                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-blog-colour"><a class="nav-colour remove-decoration" href="#"> Blog <i class="fas fa-book-open"></i></a></li>
-                         <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-home-colour"><a class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i class="fas fa-home"></i></a></li>
-                        <li class=" border nav-profile-colour list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
-                            <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                 My Account<i class="fas fa-user"></i>
-                            </a>
-                            <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-
-                                {% if request.user.is_authenticated %}
-                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#"> account <i class="fas fa-user"></i></a></li>
-
-                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Logout <i class="fas fa-door-open"></i></a></li>
-                                {% else %}
 
 
-                                <li>
-                                    <hr class="col-6 col-4-md-auto dropdown-divider">
-                                </li>
-                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Register</a><i class="fas fa-user"></i></li>
-                                <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour" href="#">Login</a><i class="fas fa-user"></i></li>
-                                {% endif %}
-                            </ul>
+
+
+
+
+
+
+
+            <div class=" row testtest fixed-top">
+
+                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a
+                        class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i
+                            class="fas fa-arrow-right"></i></a></li>
+                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-blog-colour"><a
+                        class="nav-colour remove-decoration" href="#"> Blog <i class="fas fa-book-open"></i></a></li>
+                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-home-colour"><a
+                        class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i
+                            class="fas fa-home"></i></a></li>
+                <li
+                    class=" border nav-profile-colour list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
+                    <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#"
+                        id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        My Account<i class="fas fa-user"></i>
+                    </a>
+                    <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+                        {% if request.user.is_authenticated %}
+                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                href="#"> account <i class="fas fa-user"></i></a></li>
+
+                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                href="#">Logout <i class="fas fa-door-open"></i></a></li>
+                        {% else %}
+
+
+                        <li>
+                            <hr class="col-6 col-4-md-auto dropdown-divider">
                         </li>
-                    </div>
-                    
-                        
-                        
-
+                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                href="#">Register</a><i class="fas fa-user"></i></li>
+                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                href="#">Login</a><i class="fas fa-user"></i></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </div>
 
 
             
-    
+
+
+
+
+
 
 
 
@@ -135,32 +147,35 @@
     </header>
     {% block extra_header%}
     {% endblock %}
-
     {% block content %}
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class=" col-4 ">
-                <!-- Credit: messages, code institute:'I think before I blog' -->
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class=" col-4 " %%%%%%%%%%%%%%%>
+                        <!-- Credit: messages, code institute:'I think before I blog' -->
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        <!-- End of credit -->
+                    </div>
                 </div>
-                {% endfor %}
-                <!-- End of credit -->
             </div>
-        </div>
-    </div>
-    {% endblock %}
+            {% endblock %}
+
+ 
 
     {% block postload_js%}
     <script>
-            //Credit: code institute from 'I think before I blog.
+        //Credit: code institute from 'I think before I blog.
         setTimeout(function () {
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();
-        }, 2500);</script>
+        }, 2500);
+    </script>
     {% endblock %}
 
     <footer class=" fixed-bottom">
