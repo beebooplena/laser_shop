@@ -17,7 +17,7 @@
               
                 
               <li class="list-group-item">Amount: 
-                <form class="form update-form" method="POST" action="{% url 'update_bag' item.item.id %}">
+                <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                   {% csrf_token %}
                   <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20" data_item_id ={{item.item.id}} id="id_qty_{{ item.item.id}}">
                   <input class="form-control text_input" type="text" name="engraved_name" value={{item.engraved_name}} data_item_id ={{item.name}} id="id_qty_{{ item.name}}">
