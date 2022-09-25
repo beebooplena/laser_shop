@@ -47,8 +47,10 @@ def add_item_to_bag(request, item_id):
             }
         bag[globalId] = new_item
         globalId += 1
+        messages.success(request, 'You successfully')
         
         request.session['bag'] = bag
+        
   
     
         return redirect(redirect_url)
@@ -73,6 +75,7 @@ def update_bag(request, item_id):
         }
     
     bag[item_id] = new_item
+    messages.success(request, 'You successfully updated')
     
 
     request.session['bag'] = bag

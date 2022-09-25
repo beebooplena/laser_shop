@@ -70,9 +70,9 @@
        
         {% endif %}
         
-    
-       
-      
+    {% block postloadjs %}
+    {{ block.super }}   
+    {% endblock %}  
 
 {% endblock %}
 

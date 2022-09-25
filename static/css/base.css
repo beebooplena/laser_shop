@@ -112,6 +112,11 @@ header {
     float: right;
 }
 
+.message-container {
+    position: fixed;
+    top: 200px;
+    z-index: 99999999999;
+}
 
 
 

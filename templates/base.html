@@ -26,6 +26,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+   
+
     {% endblock %}
 
     {% block extra_js%}
@@ -148,33 +150,32 @@
     {% block extra_header%}
     {% endblock %}
     {% block content %}
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class=" col-4 " %%%%%%%%%%%%%%%>
-                        <!-- Credit: messages, code institute:'I think before I blog' -->
-                        {% for message in messages %}
-                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                            {{ message | safe }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
-                        {% endfor %}
-                        <!-- End of credit -->
-                    </div>
-                </div>
-            </div>
-            {% endblock %}
+     
+    {% endblock %}
+
+    {% if messages %}
+        <div class="message-container">
+            
+            {% for message in messages %}
+                {% include 'includes/toasts/toast_success.html' %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
 
  
 
     {% block postload_js%}
-    <script>
-        //Credit: code institute from 'I think before I blog.
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2500);
+    
+    <script type="text/javascript">
+        //borrowed this toast script code from https://www.youtube.com/watch?v=fbXHOVp_L_4
+        window.onload = (event)=> {
+            let messageAlert = document.querySelector('.toast');
+            let beAlert = new bootstrap.Toast(messageAlert);
+            beAlert.show()
+        }
+        
+        
     </script>
     {% endblock %}
 
