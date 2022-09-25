@@ -28,22 +28,66 @@ def add_item_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     amount = int(request.POST.get('amount'))
     engrave = str(request.POST.get('engraved_name'))
+    print(engrave)
+    if(len(str(engrave)))>= 10:
+        messages.error(request, (
+            'Error! Your name was over 10 caracters'))
+        return redirect('items')
+    else:
+    
+        print("MMMMMMM")
+    
+        bag = request.session.get('bag', {})
+        new_item = {
+            'name': engrave,
+            'amount': amount,
+            'id': item_id
+            }
+        bag[globalId] = new_item
+        globalId += 1
+        
+        request.session['bag'] = bag
+  
+    
+        return redirect(redirect_url)
+
+
+
+
+
+def update_bag(request, item_id):
+    print("UUUUUUUUUUUU")
+   
+    amount = int(request.POST.get('amount'))
+    engrave = str(request.POST.get('engraved_name'))
+    global globalId
+    
     bag = request.session.get('bag', {})
     new_item = {
         'name': engrave,
         'amount': amount,
         'id': item_id
         }
-    bag[globalId] = new_item
     globalId += 1
+    bag[globalId] = new_item
+    
+   
+
+
+
+        
+    
+    
+    
+
+    request.session['bag'] = bag
+    print(bag)
+    print("GGGGGGGGGGGGGGGGG")
         
     request.session['bag'] = bag
   
     
-    return redirect(redirect_url)
-
-
-
+    return redirect('items')
 
 def remove_bag(request, item_id):
     """Remove the item from the shopping bag"""

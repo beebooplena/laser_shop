@@ -17,17 +17,13 @@
               
                 
               <li class="list-group-item">Amount: 
-                <form class="form update-form" method="POST" action="{url 'update_bag' item.id}">
+                <form class="form update-form" method="POST" action="{% url 'update_bag' item.item.id %}">
                   {% csrf_token %}
                   <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20" data_item_id ={{item.item.id}} id="id_qty_{{ item.item.id}}">
-
+                  <input class="form-control text_input" type="text" name="engraved_name" value={{item.engraved_name}} data_item_id ={{item.name}} id="id_qty_{{ item.name}}">
+                  <input type="submit" class="btn" value="update bag">
                 </form>
-                <a class="update-link text-info"> <style>
-                  
-                  a{
-                      cursor: pointer;
-                    }
-              </style><small>Update</small></a>
+                
               </li>
               <li class="list-group-item">{{item.item.name}}</li>
               <li class="list-group-item">Your engraved name:</li>
@@ -36,7 +32,7 @@
               <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
               
               <li class="list-group-item">Price: {{item.item.price}} $</li>
-              <li class="list-group-item"><a class="remove-item btn text-danger"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete!Are  you sure?');">Delete</a> </li>
+              <li class="list-group-item"><a class="remove-item btn text-danger"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
             </ul>
           </div>
         
