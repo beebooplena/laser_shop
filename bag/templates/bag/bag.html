@@ -13,26 +13,27 @@
           <div class="card card close-up" style=" display:flexbox; ">
             <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
             
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush ">
               
                 
-              <li class="list-group-item">Amount: 
+              <li class="list-group-item"><strong><h7>Amount:</h7></strong>
                 <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
                   {% csrf_token %}
                   <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20" data_item_id ={{item.item.id}} id="id_qty_{{ item.item.id}}">
+                  <strong><h7>Name:</h7></strong>
                   <input class="form-control text_input" type="text" name="engraved_name" value={{item.engraved_name}} data_item_id ={{item.name}} id="id_qty_{{ item.name}}">
-                  <input type="submit" class="btn" value="update bag">
+                  <input type="submit" class="btn btn-primary hvr-sweep-to-bottom update-mobile" value="Update">
                 </form>
                 
               </li>
-              <li class="list-group-item">{{item.item.name}}</li>
+              <li class="list-group-item ">{{item.item.name}}</li>
               <li class="list-group-item">Your engraved name:</li>
               
               <li class="list-group-item"> {{item.engraved_name}}</li>
               <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
               
               <li class="list-group-item">Price: {{item.item.price}} $</li>
-              <li class="list-group-item"><a class="remove-item btn text-danger"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
+              <li class="list-group-item "><a class="remove-item btn btn-danger hvr-sweep-to-bottom remove-mobile"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
             </ul>
           </div>
         

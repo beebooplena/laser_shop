@@ -119,6 +119,18 @@ header {
     left: 40px;
 }
 
+.update-mobile {
+    margin-top: 6px;
+    left: 15px;
+    
+}
+
+.remove-mobile {
+    padding: none;
+    left: 18px;
+
+}
+
 
 
 
@@ -222,6 +234,7 @@ footer {
     width: min-content;
     height: min-content;
     right: 648px;
+    margin-bottom: 100px;
     
 }
 .close-text {
@@ -238,6 +251,8 @@ footer {
     bottom: 40px;
     
 }
+
+
 
 
 @media screen and (max-width:878px) {
