@@ -92,10 +92,7 @@ header {
   
 }
 
-.mobile-close {
-    
-    
-}
+
 
 
 .remove-decoration {
@@ -116,6 +113,14 @@ header {
     width: 40%;
     float: right;
 }
+
+.btn-mobile {
+    margin-top: 6px;
+    left: 40px;
+}
+
+
+
 
 .message-container {
     position: fixed;
@@ -184,6 +189,7 @@ header {
     top: 40px;
     opacity: 90%;
     border-radius: 25px;
+    
 }
 .card_colour {
     background-color: #faedcd;
@@ -214,7 +220,7 @@ footer {
 .close-up {
     width: min-content;
     height: min-content;
-    right: 650px;
+    right: 648px;
     
 }
 .close-text {
@@ -226,6 +232,10 @@ footer {
     position: fixed;
     right: 20px;
     top: 200px;
+}
+.mobile-close {
+    bottom: 40px;
+    
 }
 
 
@@ -380,11 +390,11 @@ footer {
         right: 15px;
         top: 40px;
         
+        
        
     }
-    .card-body {
-        padding: 4px;
-    }
+    
+    
 
     .stylecheck{
         width: max-content;
@@ -421,7 +431,7 @@ footer {
     .list-group-item {
         position: inherit;
         padding: 4px;
-        width: min-content;
+        
         height: min-content;
     }
     .img-fluid {
@@ -433,11 +443,21 @@ footer {
         position: inherit;
         width: min-content;
         height: min-content;
+        
     }
     .bag-place {
         position: inherit;
         width: 50%;
     }
+    .mobile-text {
+        margin-left: 20px;
+        text-align: center;
+    }
+    .form-control {
+        text-align: center;
+    }
+
+    
   
   
    
