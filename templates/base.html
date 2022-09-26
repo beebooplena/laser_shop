@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block maincss%}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
@@ -52,10 +53,10 @@
                     <form method="GET" action="{% url 'items' %}">
                         {% csrf_token %}
                         <div class=" w-100">
-                            <input class="search-style search-form form-control border border-black rounded-0"
+                            <input class="search-style  search-form form-control border border-black rounded-0"
                                 type="text" name="s" placeholder="Search in our store">
                             <div class="input-group-append">
-                                <button class="search-btn form-control btn btn-black border border-black rounded-0"
+                                <button class="search-btn form-control hvr-sweep-to-bottom btn btn-black border border-black rounded-0"
                                     type="submit">
                                     <span class="icon">
                                         <i class="fas fa-search"></i>
@@ -97,16 +98,16 @@
 
             <div class=" row testtest fixed-top">
 
-                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-product-colour"><a
-                        class=" nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i
+                <li class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-product-colour"><a
+                        class="  nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i
                             class="fas fa-arrow-right"></i></a></li>
-                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-blog-colour"><a
+                <li class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-blog-colour"><a
                         class="nav-colour remove-decoration" href="#"> Blog <i class="fas fa-book-open"></i></a></li>
-                <li class="col-6 col-4-md-auto border same-nav list-inline-item nav-home-colour"><a
+                <li class="col-6 col-4-md-auto border hvr-sweep-to-bottom same-nav list-inline-item nav-home-colour"><a
                         class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i
                             class="fas fa-home"></i></a></li>
                 <li
-                    class=" border nav-profile-colour list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
+                    class=" border nav-profile-colour hvr-sweep-to-bottom list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
                     <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#"
                         id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         My Account<i class="fas fa-user"></i>
@@ -114,10 +115,10 @@
                     <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 
                         {% if request.user.is_authenticated %}
-                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                        <li><a class="col-6 col-4-md-auto same hvr-sweep-to-bottom dropdown-item list-inline-item nav-profile-colour"
                                 href="#"> account <i class="fas fa-user"></i></a></li>
 
-                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                        <li><a class="col-6 col-4-md-auto same dropdown-item hvr-sweep-to-bottom list-inline-item nav-profile-colour"
                                 href="#">Logout <i class="fas fa-door-open"></i></a></li>
                         {% else %}
 

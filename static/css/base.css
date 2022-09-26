@@ -92,6 +92,11 @@ header {
   
 }
 
+.mobile-close {
+    
+    
+}
+
 
 .remove-decoration {
     text-decoration: none;
@@ -209,7 +214,7 @@ footer {
 .close-up {
     width: min-content;
     height: min-content;
-    right: 900px;
+    right: 650px;
     
 }
 .close-text {

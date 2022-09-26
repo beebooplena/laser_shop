@@ -5,16 +5,16 @@
 {% block content %}
 
 
-<div class="card close-up" style="width: 28rem; height:600px;">
+<div class="card close-up mobile-close" style="width: 28rem; height:550px;">
   <a href="{{ item.image.url}}" target="_blank">
     <img class=" img-image-close " src="{{item.image.url}}" alt="{{item.name}}">
   </a>
-  <div class="card-body close-text">
+  <div class="card-body close-text mobile-close">
     <h5 class="card-title"><strong>{{item.name}}</strong></h5>
     <p class="card-text">{{item.description}}</p>
     <p class="card-text"><small>{{item.price}}</small></p>
   </div>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush rounded">
     <li class="list-group-item">
       <form class="form" action="{% url 'add_item_to_bag' item.id %}" method="POST">
         {% csrf_token %}
@@ -34,10 +34,10 @@
           </div>
         </div>
         <div>
-          <a href="{% url 'items' %}" class="btn">
+          <a href="{% url 'items' %}" class="btn btn-primary hvr-sweep-to-bottom">
             <span><strong>Keep shopping</strong></span>
           </a>
-          <input type="submit" class="btn" value="Add item to Bag">
+          <input class="btn btn-success hvr-sweep-to-bottom" type="submit"  value="Add item to Bag">
         </div>
         <div>
           <input type="hidden" name="redirect_url" value="{{ request.path}}">
@@ -47,7 +47,7 @@
 
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
+    
     <a href="#" class="card-link">BUY</a>
   </div>
 </div>
