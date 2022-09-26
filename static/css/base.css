@@ -124,7 +124,8 @@ header {
 
 .message-container {
     position: fixed;
-    top: 200px;
+    top: 190px;
+    right: 250px;
     z-index: 99999999999;
 }
 
