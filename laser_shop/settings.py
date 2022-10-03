@@ -97,7 +97,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu67.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu69.gitpod.io']
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
