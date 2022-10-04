@@ -37,7 +37,8 @@ def add_item_to_bag(request, item_id):
             break
             
         except Exception as e:
-            print("neeeeee")
+            messages.error(request, (
+            'Error! No strings allowed'))
 
             return HttpResponse(status=500)
    
@@ -59,7 +60,7 @@ def add_item_to_bag(request, item_id):
             }
         bag[globalId] = new_item
         globalId += 1
-        messages.success(request, 'You successfully')
+        messages.success(request, f'You successfully added {item.name} in the bag')
         
         request.session['bag'] = bag
         
