@@ -213,6 +213,22 @@ header {
     border-radius: 25px;
 }
 
+.card-form {
+    right: 750px;
+    width: 500px;
+    height: 750px;
+}
+
+.checkout-title {
+    text-align: center;
+}
+
+.text-checkout {
+    text-align: center;
+}
+
+
+
 
 
 footer {
@@ -258,6 +274,17 @@ footer {
 @media screen and (max-width:878px) {
     header {
         position: inherite;
+        
+    }
+
+    .card {
+        position: inherit;
+        right: 50px;
+    }
+
+    .card-form {
+        right: 180px;
+        width: 300px;
         
     }
 
@@ -365,6 +392,12 @@ footer {
         top: 40px;
            
         }
+
+    .card-form {
+            right: 180px;
+            width: 200px;
+            
+        }
     .card_colour {
         background-color: #faedcd;
         border-radius: 25px;
@@ -405,9 +438,14 @@ footer {
         
         right: 15px;
         top: 40px;
+    }
+    .card-form {
+        right: 100px;
+        width: max-content;
+        height: max-content;
+        margin-bottom: 30px;
+        left: 18px;
         
-        
-       
     }
     
     
@@ -420,8 +458,8 @@ footer {
     
     .cash {
         flex-direction: unset;
-        height: 100px;
-        bottom: 20px;
+        right: 50px;
+        margin-bottom: 50px;
     }
    
     .search {
