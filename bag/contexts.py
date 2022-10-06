@@ -56,18 +56,6 @@ def bag_contents(request):
         'item_many': item_many,
         'delivery': delivery,
         'sum_total': sum_total,
-        
-        
-     
-        
-        
-   
-        
-          
     }
-    print("############")
-    print(bag.items())
-    print("############")
-    return context
 
-        
+    return context
