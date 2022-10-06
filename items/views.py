@@ -45,7 +45,7 @@ def item_detail(request, item_id):
     
 
     context = {
-        'item' : item,
+        'item': item,
         
         
     }

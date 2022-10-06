@@ -20,6 +20,7 @@ def show_bag(request):
 def add_item_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
     global globalId
+    item = get_object_or_404(Item, pk=item_id)
     
 
     if request.method == 'GET':

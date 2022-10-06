@@ -4,6 +4,7 @@ from .models import Ordering
 
 class OrderingForm(forms.ModelForm):
     class Meta:
+        model = Ordering
         fields = (
             'full_name', 'email', 'mobile_number',
             'street_address', 'city', 'zip_code',

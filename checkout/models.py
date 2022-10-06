@@ -6,9 +6,11 @@ from django.db.models import Sum
 from django.conf import settings
 from items.models import Item
 
-# Create your models here.
+
 class Ordering(models.Model):
-    ordering_number = models.CharField(max_length=32, null=False, editable=False)
+    ordering_number = models.CharField(
+        max_length=32, null=False, editable=False
+        )
     full_name = models.CharField(max_length=60, null=False, blank=False)
     email = models.EmailField(max_length=260, null=False, blank=False)
     mobile_number = models.CharField(max_length=25, null=False, blank=False)
@@ -17,10 +19,18 @@ class Ordering(models.Model):
     city = models.CharField(max_length=50, null=False, blank=False)
     street_address = models.CharField(max_length=100, null=False, blank=False)
     time = models.DateTimeField(auto_now_add=True)
-    delivery_payment = models.DecimalField(max_digits=6, decimal_places=2,null=False, default=0)
-    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    ordering_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    sum_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    delivery_payment = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
+        )
+    discount = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
+        )
+    ordering_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+        )
+    sum_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+        )
 
     def _generate_ordering_number(self):
         """
@@ -28,7 +38,7 @@ class Ordering(models.Model):
         This code is borrowed from code institute from the boutique ado project
         """
         return uuid.uuid4().hex.upper()
-    
+   
     def update_sum(self):
         """
         Update sum_total everytime a line item is added,
@@ -45,7 +55,7 @@ class Ordering(models.Model):
             self.ordering_total + self.delivery_payment - self.discount)
         self.save()
 
-    
+   
     def save(self, *args, **kwargs):
         """
         If a ordering number does not exist before,
@@ -57,7 +67,7 @@ class Ordering(models.Model):
             self.ordering_number = self._generate_ordering_number()
         super().save(*args, **kwargs)
 
-    
+   
     def __str__(self):
         return self.ordering_number
 
@@ -79,7 +89,7 @@ class OrderingLineItem(models.Model):
         """
         self.lineitem_sum = self.item.price * self.amount
         super().save(*args, **kwargs)
-    
+   
 
     def __str__(self):
         return f'SKU {self.item.sku} on ordering {self.ordering.ordering_number}'
