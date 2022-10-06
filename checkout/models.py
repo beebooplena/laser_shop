@@ -34,13 +34,15 @@ class Ordering(models.Model):
         Update sum_total everytime a line item is added,
         accounting for discount and delivery cost.
         """
-        self.ordering_total = self.lineitems.aggregate(Sum('lineitem_sum'))['lineitem_sum__sum']
+        self.ordering_total = self.lineitems.aggregate(
+            Sum('lineitem_sum'))['lineitem_sum__sum']
         self.delivery_payment = settings.STANDARD_DELIVERY_PRICE
         if Item.discount_value is True:
             Item.discount_value = self.discount
         else:
             self.discount = 0
-        self.sum_total = self.ordering_total + self.delivery_payment - self.discount
+        self.sum_total = (
+            self.ordering_total + self.delivery_payment - self.discount)
         self.save()
 
     
@@ -60,10 +62,14 @@ class Ordering(models.Model):
         return self.ordering_number
 
 class OrderingLineItem(models.Model):
-    ordering = models.ForeignKey(Ordering, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    ordering = models.ForeignKey(
+        Ordering, null=False, blank=False, on_delete=models.CASCADE,
+        related_name='lineitems')
     item = models.ForeignKey(Item, null=False, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_sum = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_sum = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False,
+        blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
