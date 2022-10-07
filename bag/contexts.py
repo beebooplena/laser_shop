@@ -43,13 +43,7 @@ def bag_contents(request):
         print(bag)
         print("*********")
         
-      
-        
-       
-    
     sum_total = sumup
-    
-            
     context = {
         'bag_items': bag_items,
         'total': total,
