@@ -15,6 +15,8 @@ class OrderingAdmin(admin.ModelAdmin):
         'ordering_number', 'time',
         'delivery_payment', 'ordering_total',
         'sum_total',)
+        
+        
 
     fields = (
         'ordering_number', 'time', 'full_name', 'email',

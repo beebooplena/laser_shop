@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-
-from .models import Item
 from django.contrib import messages
 from django.db.models import Q
+
+from .models import Item
 
 
 
@@ -14,7 +14,7 @@ def all_items(request):
     Ado project.
     A view to show all items, including search queries """
 
-    items= Item.objects.all()
+    items = Item.objects.all()
     query = None
 
     if request.GET:

@@ -3,6 +3,7 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
+from bag.contexts import bag_contents
 from django.conf import settings
 from items.models import Item
 
@@ -45,7 +46,7 @@ class Ordering(models.Model):
         accounting for discount and delivery cost.
         """
         self.ordering_total = self.lineitems.aggregate(
-            Sum('lineitem_sum'))['lineitem_sum__sum']
+            Sum('lineitem_sum'))['lineitem_sum__sum'] or 0
         self.delivery_payment = settings.STANDARD_DELIVERY_PRICE
         if Item.discount_value is True:
             Item.discount_value = self.discount
@@ -77,6 +78,7 @@ class OrderingLineItem(models.Model):
         related_name='lineitems')
     item = models.ForeignKey(Item, null=False, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False, blank=False, default=0)
+    name_engraved = models.CharField(max_length=40, null=True, blank=True)
     lineitem_sum = models.DecimalField(
         max_digits=6, decimal_places=2, null=False,
         blank=False, editable=False)
@@ -87,6 +89,7 @@ class OrderingLineItem(models.Model):
         set lineitem sum and update the ordering total.
         This code is borrowed from code institute from the boutique ado project
         """
+
         self.lineitem_sum = self.item.price * self.amount
         super().save(*args, **kwargs)
    
