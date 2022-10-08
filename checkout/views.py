@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 import stripe
@@ -6,8 +7,26 @@ from bag.contexts import bag_contents
 from items.models import Item
 from .models import Ordering, OrderingLineItem
 from .forms import OrderingForm
+import stripe
+import json
 
 
+
+@require_POST
+def cache_checkout_info(request):
+    try:
+        pid = request.POST.get('client:secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save-info': request.POST.get('save-info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request,'So sorry, Your payment \
+            cannot be processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):

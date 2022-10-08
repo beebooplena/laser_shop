@@ -69,7 +69,29 @@ form.addEventListener('submit', function (ev) {
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
-        }
+            billing_details: {
+                name: $.trim(form.full_name.value),
+                email: $.trim(form.email.value),
+                mobile: $.trim(form.mobile_number.value),
+                address: {
+                    address: $.trim(form.street_address.value),
+                    city: $.trim(form.city.value),
+                    country: $.trim(form.country.value),
+                }
+            }
+        },
+        shipping: {
+            name: $.trim(form.full_name.value),
+            mobile: $.trim(form.mobile_number.value),
+            address: {
+                address: $.trim(form.street_address.value),
+                zip_code: $.trim(form.zip_code.value),
+                city: $.trim(form.city.value),
+                country: $.trim(form.country.value),
+            }
+
+        },
+
     }).then(function (result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
