@@ -82,15 +82,15 @@
                     <div class=" text-danger" id="card-errors" role="alert"></div>
                 </fieldset>
 
-                <div class="submit-button text-right mt-5 mb-2">                    
-                    <a href="{% url 'show_bag' %}" class="btn btn-outline-black rounded-0">
+                <div class="submit-button text-right ">                    
+                    <a href="{% url 'show_bag' %}" class=" update-mobile btn btn-info hvr-sweep-to-bottom ">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
-                    <button id="submit-button" class="btn btn-black rounded-0">
-                        <span class="font-weight-bold">Complete Order</span>
+                    <button id="submit-button" class=" update-mobile btn btn-primary hvr-sweep-to-bottom">
+                        <span class="font-weight-bold ">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
                         </span>
@@ -103,6 +103,14 @@
                     </p>
                 </div>
             </form>
+
+            <div id="loading-overlay">
+                <h1 class="text-light logo-font loading-spinner">
+                    <span class="icon">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                    </span>
+                </h1>
+            </div>
 {% endblock %}
 
 {% block postload_js %}
