@@ -8,12 +8,46 @@
  
     
 
-        <div class=" card card-form col-12 col-md-6">
+        <div class=" card card-finish col-12 col-md-6">
             <h2 class="checkout-title">Thank you!</h2>
             <hr>
             <p class="text-checkout">Here is your orderinformation. A confirmation
                 will be sendt to <strong>{{ordering.email}}</strong>
             </p>
+            <ul class="list-group list-group-flush ">
+              
+                <li class="list-group-item list-group-item-light "><strong>Order Information</strong> <i class="fas fa-info"></i></li>
+                <li class="list-group-item list-group-item-success"><strong>Order number:</strong>{{ordering.ordering_number}}</li>
+                 
+                <li class="list-group-item list-group-item-success font-weight-bold  "><strong>Date:</strong> {{ordering.time}}</li>
+                {% for thing in ordering.lineitems.all %}
+                
+                <li class="list-group-item list-group-item-success "><strong>Product:</strong> {{thing.item.name}}</li>
+                
+                <li class="list-group-item list-group-item-success "> <strong>engraved name:</strong> {{thing.name_engraved}}</li>
+                <li class="list-group-item list-group-item-success "><strong>Amount:</strong> {{thing.amount}}</li>
+                
+                <li class="list-group-item list-group-item-success "><strong>Price:</strong> {{thing.item.price}} $</li>
+                {% endfor %}
+
+                <li class="list-group-item list-group-item-light"><strong>Delivery</strong> <i class="fas fa-truck"></i></li>
+                
+                <li class="list-group-item list-group-item-primary"> <strong>Full name:</strong> {{ordering.full_name}}</li>
+                <li class="list-group-item list-group-item-primary"><strong>Address:</strong> {{ordering.street_address}}</li>
+                
+                <li class="list-group-item list-group-item-primary"><strong>zip_code:</strong> {{ordering.zip_code}} </li>
+                <li class="list-group-item list-group-item-primary"><strong>city: </strong>{{ordering.city}} </li>
+                <li class="list-group-item list-group-item-primary"><strong>country:</strong> {{ordering.country}} </li>
+                <li class="list-group-item list-group-item-primary"><strong>Mobile Number:</strong> {{ordering.mobile_number}} $</li>
+                <li class="list-group-item list-group-item-light"><strong>Billing Information</strong> <i class="fas fa-money-bill"></i></li>
+
+                <li class="list-group-item list-group-item-info"><strong>Total Cost:</strong> {{ordering.sum_total}} $</li>
+                <li class="list-group-item list-group-item-info"><strong>Delivey Cost</strong> {{ordering.delivery_payment}} $</li>
+                <li class="list-group-item last list-group-item-info"><strong>Discount:</strong> {{ordering.discount}} $</li>
+                
+               
+              </ul>
+                
         </div>
 
         <div class="card cash">

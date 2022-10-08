@@ -34,7 +34,7 @@ def add_item_to_bag(request, item_id):
         amount = int(request.POST.get('amount'))
         try:
             amount = int(amount)
-            print("jaaaaa")
+            
             break
             
         except Exception as e:

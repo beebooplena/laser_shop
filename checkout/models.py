@@ -3,7 +3,7 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
-from bag.contexts import bag_contents
+
 from django.conf import settings
 from items.models import Item
 

@@ -199,7 +199,7 @@ header {
     float: right;
     background-color: #faedcd;
     right: 130px;
-    top: 40px;
+    top: 15px;
     opacity: 90%;
     border-radius: 25px;
     
@@ -219,8 +219,29 @@ header {
     height: 750px;
 }
 
+.card-finish {
+    right: 750px;
+    width: 500px;
+    height: 840px;
+    text-align: center;
+    
+    
+}
+.list-group-item {
+    padding: .3rem 1rem;;
+    display: table-column;
+}
+
+strong {
+    font-weight:900;
+    
+    
+  }
+
 .checkout-title {
     text-align: center;
+    font-weight: 800;
+    margin-top: 10px;
 }
 
 #payment-form .form-control,
@@ -493,6 +514,11 @@ footer {
         left: 17px;
         
     }
+    .card-finish {
+        
+        margin-bottom: 30px;
+        left: 0px;
+    }
 
   
     
@@ -555,6 +581,12 @@ footer {
     }
     .form-control {
         text-align: center;
+    }
+
+    .message-container {
+        position: inherit;
+        right: 130px;
+        
     }
 
     
