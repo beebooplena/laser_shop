@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+import json
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -7,19 +9,22 @@ from bag.contexts import bag_contents
 from items.models import Item
 from .models import Ordering, OrderingLineItem
 from .forms import OrderingForm
-import stripe
-import json
-
 
 
 @require_POST
-def cache_checkout_info(request):
+def cache_checkout_data(request):
+    """
+    This function will check if the user checked the
+    save info box.
+    This code is borrowed from code institute, from the
+    project boutique ado.
+    """
     try:
-        pid = request.POST.get('client:secret').split('_secret')[0]
+        pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
-            'save-info': request.POST.get('save-info'),
+            'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
         return HttpResponse(status=200)
