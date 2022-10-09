@@ -1,5 +1,6 @@
 import json
 import time
+from userprofiles.models import CustomerProfile
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from items.models import Item
@@ -47,6 +48,20 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+        
+        # Update customer information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = CustomerProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_mobile_number=shipping_details.phone,
+                profile.default_zip_code=shipping_details.address.postal_code,
+                profile.default_street_address=shipping_details.address.line1,
+                profile.default_city=shipping_details.address.city,
+                profile.default_country=shipping_details.address.country
+                profile.save()
+
 
         ordering_exists = False
         attempt = 1
@@ -84,6 +99,7 @@ class StripeWH_Handler:
             try:
                 ordering = Ordering.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     mobile_number=shipping_details.phone,
                     zip_code=shipping_details.address.postal_code,
