@@ -14,7 +14,7 @@ class CustomerProfile(models.Model):
     default_zip_code = models.CharField(max_length=25, null=True, blank=True)
     default_city = models.CharField(max_length=50, null=True, blank=True)
     default_street_address = models.CharField(max_length=100, null=True, blank=True)
-    web_site = models.CharField(max_length=260, null=True, blank=True,)
+    web_site = models.CharField(max_length=260, null=True, blank=True)
     want_wishes = models.TextField(max_length=260, blank=True, null=True )
 
     def __str__(self):

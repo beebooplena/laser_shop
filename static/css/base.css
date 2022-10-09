@@ -228,8 +228,16 @@ header {
     width: 500px;
     height: 840px;
     text-align: center;
+}
+
+.card-profile {
+    right: 648px;
     
-    
+    width: 350px;
+    height: 750px;
+    text-align: center;
+    padding: 6px;
+
 }
 .list-group-item {
     padding: .3rem 1rem;;
