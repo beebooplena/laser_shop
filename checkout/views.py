@@ -51,7 +51,11 @@ def checkout(request):
         }
         ordering_form = OrderingForm(form_info)
         if ordering_form.is_valid():
-            ordering = ordering_form.save()
+            ordering = ordering_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            ordering.stripe_pid = pid
+            ordering.original_bag = json.dumps(bag)
+            ordering.save()
             for item_id, values in bag.items():
                 try:
                     item = get_object_or_404(Item, pk=values['id'])
