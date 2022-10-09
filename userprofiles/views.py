@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
-def profile(request):
+def userprofile(request):
     """
     Show the customer profile
     """
-    template = 'userprofiles/profile.html'
+    template = 'userprofile/userprofile.html'
     context = {}
 
     return render(request, template, context)

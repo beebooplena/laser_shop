@@ -124,6 +124,10 @@ header {
     left: 15px;
     
 }
+.account-buttons {
+    bottom: 5px;
+    margin-top: 6px;
+}
 
 .remove-mobile {
     padding: none;
@@ -280,6 +284,14 @@ footer {
     right: 648px;
     margin-bottom: 100px;
     
+}
+
+.closer-up {
+    right: 648px;
+    margin-bottom: 100px;
+    width: 500px;
+    height: 450px;
+    text-align: center;
 }
 .close-text {
     flex: none;

@@ -122,7 +122,7 @@
                                 href="#"> account <i class="fas fa-user"></i></a></li>
 
                         <li><a class="col-6 col-4-md-auto same dropdown-item hvr-sweep-to-bottom list-inline-item nav-profile-colour"
-                                href="#">Logout <i class="fas fa-door-open"></i></a></li>
+                                href="{% url 'account_logout' %}">Logout <i class="fas fa-door-open"></i></a></li>
                         {% else %}
 
 
@@ -130,9 +130,9 @@
                             <hr class="col-6 col-4-md-auto dropdown-divider">
                         </li>
                         <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
-                                href="#">Register</a><i class="fas fa-user"></i></li>
+                                href="{% url 'account_signup' %}">Register</a><i class="fas fa-user"></i></li>
                         <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
-                                href="#">Login</a><i class="fas fa-user"></i></li>
+                                href="{% url 'account_login' %}">Login</a><i class="fas fa-user"></i></li>
                         {% endif %}
                     </ul>
                 </li>
