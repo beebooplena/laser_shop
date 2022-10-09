@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from checkout.models import Ordering
 from .models import CustomerProfile
 from django.contrib import messages
-from checkout.models import Ordering
+
 from .forms import CustomerProfileForm
 
 def profile(request):
@@ -17,9 +18,7 @@ def profile(request):
                 profile updated successfully')
         else:
             messages.error(request, 'Update failed. Please try again')
-    else:
-
-        form = CustomerProfileForm(instance=profile)
+    form = CustomerProfileForm(instance=profile)
     orders = profile.orders.all().order_by('-time')
     template = 'userprofile/profile.html'
     context = {
@@ -28,4 +27,18 @@ def profile(request):
         
     }
 
+    return render(request, template, context)
+
+def history_order(request, ordering_number):
+    order = get_object_or_404(Ordering, ordering_number=ordering_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for order number {ordering_number}'
+        ' A confirmation email was sent on the order date'
+    ))
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+    }
     return render(request, template, context)

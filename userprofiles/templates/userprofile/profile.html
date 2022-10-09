@@ -8,9 +8,32 @@
  
     
         <div class=" card card-profile col-12 col-md-6">
-            <p class="text-checkout">order history. 
-            </p>
-            {{orders}}
+            <h2 class="checkout-title">Order History</h2>
+            
+            <ul class="list-group list-group-flush ">
+                
+                
+                {% for order in orders %}
+                
+                <li class="list-group-item list-group-item-success"><a href="{% url 'history_order' order.ordering_number %}"
+                title="{{order.ordering_number }}">
+                {{ order.ordering_number| truncatechars:8 }}
+                </a></li>
+                {% for item in order.lineitems.all %}
+                <li class="list-group-item list-group-item-success">Date: {{order.time}}</li>
+                <li class="list-group-item list-group-item-success">Item: {{item.item.name}}</li>
+                <li class="list-group-item list-group-item-success">Engraved name: {{item.name_engraved}}</li>
+                <li class="list-group-item list-group-item-success">Amount: {{item.amount}}</li>
+                <li class="list-group-item list-group-item-success">Total Sum: {{order.sum_total}}</li>
+                <hr>
+                 
+                {% endfor %}
+                 
+                
+                {% endfor %}
+               
+                
+               
 
         </div>
         <div class=" card card-profile col-12 col-md-6">

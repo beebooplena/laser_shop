@@ -7,6 +7,8 @@ from django.conf import settings
 import stripe
 from bag.contexts import bag_contents
 from items.models import Item
+from userprofiles.forms import CustomerProfileForm
+from userprofiles.models import CustomerProfile
 from .models import Ordering, OrderingLineItem
 from .forms import OrderingForm
 
@@ -94,6 +96,8 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+
+        
         
         ordering_form = OrderingForm()
 
@@ -116,6 +120,25 @@ def checkout_success(request, ordering_number):
     """
     save_info = request.session.get('save_info')
     ordering = get_object_or_404(Ordering, ordering_number=ordering_number)
+
+    if request.user.is_authenticated:
+        profile = CustomerProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        ordering.customer_profile = profile
+        ordering.save()
+        if save_info:
+            profile_data = {
+
+                'default_mobile_number': ordering.mobile_number,
+                'default_city': ordering.city,
+                'default_zip_code': ordering.zip_code,
+                'default_street_address': ordering.street_address,
+                'default_country': ordering.country,
+            }
+            user_profile_form = CustomerProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+        
     messages.success(request, f'You successfully ordered! \
         Your order number is {ordering_number}. A confirmation \
             email will be sent to {ordering.email}')

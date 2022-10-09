@@ -13,9 +13,10 @@ class Ordering(models.Model):
     ordering_number = models.CharField(
         max_length=32, null=False, editable=False
         )
-    customer_profile = models.ForeignKey(
-        CustomerProfile, on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='orders')
+    customer_profile = models.ForeignKey(CustomerProfile,
+                                         on_delete=models.SET_NULL,
+                                         null=True, blank=True,
+                                         related_name='orders')
     full_name = models.CharField(max_length=60, null=False, blank=False)
     email = models.EmailField(max_length=260, null=False, blank=False)
     mobile_number = models.CharField(max_length=25, null=False, blank=False)

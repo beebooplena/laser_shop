@@ -18,7 +18,7 @@ class OrderingAdmin(admin.ModelAdmin):
         'stripe_pid',)
         
     fields = (
-        'ordering_number', 'time', 'full_name', 'email',
+        'ordering_number', 'customer_profile', 'time', 'full_name', 'email',
         'mobile_number', 'country',
         'zip_code', 'city', 'street_address', 'delivery_payment',
         'discount', 'ordering_total', 'sum_total',
