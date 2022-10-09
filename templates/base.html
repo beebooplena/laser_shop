@@ -119,7 +119,7 @@
 
                         {% if request.user.is_authenticated %}
                         <li><a class="col-6 col-4-md-auto same hvr-sweep-to-bottom dropdown-item list-inline-item nav-profile-colour"
-                                href="#"> account <i class="fas fa-user"></i></a></li>
+                                href="{% url 'userprofile' %}"> My Customer Profile <i class="fas fa-user"></i></a></li>
 
                         <li><a class="col-6 col-4-md-auto same dropdown-item hvr-sweep-to-bottom list-inline-item nav-profile-colour"
                                 href="{% url 'account_logout' %}">Logout <i class="fas fa-door-open"></i></a></li>
