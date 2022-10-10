@@ -6,7 +6,7 @@
 */
 
 /* Borrowed this code from code institute, from the
-   Boutique Ado project */
+   Boutique Ado project, by using my own variables names */
 
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);

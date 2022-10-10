@@ -1,0 +1,1 @@
+Laser shop confirmation for Order Number {{ordering.ordering_number}}

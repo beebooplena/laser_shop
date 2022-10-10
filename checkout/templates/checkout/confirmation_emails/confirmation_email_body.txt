@@ -1,0 +1,16 @@
+Hi {{ordering.full_name}}
+
+This is your shopping confirmation from Laser Shop. Here is your order information
+
+Order Number: {{ordering.ordering_number}}
+Date: {{ ordering.time }}
+delivery : ${{ ordering.delivery_payment }}
+Total sum : ${{ ordering.sum_total}}
+
+Your order will be delivered to {{ordering.street_address}} in {{ ordering.city}}
+If your have any questions, please contact us {{lasershop_email}}
+Thank you for shopping!
+
+Best regards
+
+Laser shop
