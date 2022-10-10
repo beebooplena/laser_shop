@@ -3,7 +3,17 @@
 
 
 {% block content %}
-
-
+<div class=" card card-profile col-12 col-md-6">
+    <ul class="list-group list-group-flush ">
+    {% for post in posts %}
+    <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
+    <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
+    <li class="list-group-item list-group-item-success">Image: {{post.blog_image}}</li>
+    <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
+    <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
+    
+    {% endfor%}
+</ul>
+</div>
 
 {% endblock %}
