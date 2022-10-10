@@ -8,7 +8,7 @@
 body {
     font-family:'Lato', serif ;
     font-weight: 700;
-    background: url('/media/laser_main.jpg')no-repeat center center;
+    background: url('https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg')no-repeat center center;
     background-size: cover;
     
     height: 750px;
