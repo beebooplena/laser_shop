@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from checkout.models import Ordering
 from .models import CustomerProfile
-from django.contrib import messages
+
 
 from .forms import CustomerProfileForm
 
+@login_required
 def profile(request):
     """
     Show the customer profile
@@ -29,6 +32,8 @@ def profile(request):
 
     return render(request, template, context)
 
+
+@login_required
 def history_order(request, ordering_number):
     order = get_object_or_404(Ordering, ordering_number=ordering_number)
 
