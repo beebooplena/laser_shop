@@ -293,6 +293,16 @@ footer {
     margin-bottom: 100px;
     
 }
+.blog-card {
+    
+    right: 648px;
+    
+    width: 450px;
+    height: 550px;
+    text-align: center;
+    padding: 6px;
+
+}
 
 .closer-up {
     right: 648px;
@@ -612,6 +622,11 @@ footer {
         width: min-content;
         height: min-content;
         
+    }
+    .blog-card {
+        right: 30px;
+        width: auto;
+
     }
     .bag-place {
         position: inherit;

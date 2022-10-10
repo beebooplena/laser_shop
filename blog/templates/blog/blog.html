@@ -3,11 +3,14 @@
 
 
 {% block content %}
-<div class=" card card-profile col-12 col-md-6">
+<div class=" card blog-card col-12 col-md-6">
     <ul class="list-group list-group-flush ">
     {% for post in posts %}
     <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
     <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
+    <a href="{{ post.blog_image.url}}" target="_blank">
+        <img class=" img-image-close " src="{{post.blog_image.url}}" alt="barbeque sticks">
+      </a>
     
     <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
     <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
