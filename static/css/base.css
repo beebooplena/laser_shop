@@ -277,6 +277,7 @@ footer {
    
 }
 
+
 .img-image-close {
     height: 210px;
     width: 100%;
@@ -345,6 +346,26 @@ footer {
     margin: 0;
     height: 100%;
 }
+
+/* Mailchimp */
+#mc_embed_signup {
+    background:rgb(225, 243, 228); 
+    clear:left; 
+    
+    width: min-content;
+    height: min-content;
+    position: absolute;
+    z-index: 999999;
+    border-radius: 15px;
+    opacity: 95%;
+    left: -15px;
+    top: 330px;
+    
+    
+}
+
+
+
 /* stripe css checkout. borrowed css from code institute,
     from the boutique ado project */
 

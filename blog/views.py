@@ -6,8 +6,6 @@ def show_blog(request):
     """ This will render blog """
     posts = BlogPost.objects.all()
 
-
-
     context = {
         'posts': posts,
         
