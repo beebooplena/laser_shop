@@ -17,14 +17,17 @@
         </li>
         <li class="list-group-item list-group-item-success font-weight-bold  "><strong>Date:</strong> {{ordering.time}}
         </li>
-        {% for thing in ordering.lineitems.all %}
+    </ul>
+    {% for thing in ordering.lineitems.all %}
+    <ul class="list-group list-group-flush ">
         <li class="list-group-item list-group-item-success "><strong>Product:</strong> {{thing.item.name}}</li>
         <li class="list-group-item list-group-item-success "> <strong>engraved name:</strong> {{thing.name_engraved}}
         </li>
         <li class="list-group-item list-group-item-success "><strong>Amount:</strong> {{thing.amount}}</li>
         <li class="list-group-item list-group-item-success "><strong>Price:</strong> {{thing.item.price}} $</li>
         {% endfor %}
-
+    </ul>
+    <ul>
         <li class="list-group-item list-group-item-light"><strong>Delivery</strong> <i class="fas fa-truck"></i></li>
         <li class="list-group-item list-group-item-primary"> <strong>Full name:</strong> {{ordering.full_name}}</li>
         <li class="list-group-item list-group-item-primary"><strong>Address:</strong> {{ordering.street_address}}</li>
@@ -47,7 +50,7 @@
 <div class="card cash">
     <div class="card-body">
         <a href="{% url 'items' %}" class="btn btn-primary">Shop more</a>
-        <li class="list-group-item"></li>
+
     </div>
 
 </div>

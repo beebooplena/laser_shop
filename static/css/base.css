@@ -94,7 +94,7 @@ header {
 }
 
 .remove-mobile {
-    padding: none;
+    padding: 0px;
     left: 18px;
 }
 
@@ -400,12 +400,9 @@ footer {
 
 /* style for the media queries 878px */
 @media screen and (max-width:878px) {
-    header {
-        position: inherite;
-    }
-
+    
     .card {
-        position: inherit;
+        
         right: 50px;
     }
 
@@ -415,19 +412,19 @@ footer {
     }
 
     .logo-text {
-        position: inherit;
+        position:inherit;
         width:40%;
         font-size: 48px;
         text-align:justify;
     }
 
     .logo {
-        position: inherit;
+        position:inherit;
         width: 100%;
     }
    
     .nav-colour{
-        position: inherit;
+        position:inherit;
         display:grid;
         font-size:small;
     }
@@ -438,13 +435,10 @@ footer {
     }
     
     .search-form {
-        position: inherite;
+        
         margin-top: 10px;
     }
 
-    .search-btn {
-        position: inherite;
-        }
 }
 
 /* style for the media queries 649px */
@@ -488,12 +482,12 @@ footer {
     }
 
     .search {
-        position: inherite;
+        
         width: 40%;
     }
 
     .search-btn {
-        position: relative;
+        
         bottom: 60px;
     }
 
@@ -576,7 +570,7 @@ footer {
     }
    
     .search {
-        position: inherite;
+        
         width: 40%;
     }
 
@@ -595,12 +589,11 @@ footer {
     }
 
     footer {
-        position: inherite;
+        
         height: 40px;
     }
 
     .list-group-item {
-        position: inherit;
         padding: 4px;
         height: min-content;
     }

@@ -1,5 +1,5 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,9 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description"
-    content="Laserwood produce high quality wood products were you can get your preferred names engraved">
-    <meta name="keywords"
-    content="wood products, engrave, hammer, barbeque sticks, knife, blog, camping, wood, quality, names,
+        content="Laserwood produce high quality wood products were you can get your preferred names engraved">
+    <meta name="keywords" content="wood products, engrave, hammer, barbeque sticks, knife, blog, camping, wood, quality, names,
     products, outdoors, bonfire, barbeque, outdoor activity">
 
     {% block maincss%}
@@ -38,7 +37,7 @@
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     <!-- Mailchimp-->
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 
 
 
@@ -82,69 +81,70 @@
                 </div>
 
                 <div class="col-6 col-4-md-auto">
-
-
-
-                    <li class="  col   list-inline-item nav-colour">
-                        <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'show_bag' %}">
-                            <div class=" text-center">
-                                <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
-                                <p class=" bag-place my-0">
-                                    {% if sum_total %}
-                                    ${{ sum_total|floatformat:2 }}
-                                    {% else %}
-                                    $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+                    <ul>
+                        <li class=" col list-inline-item nav-colour">
+                            <a class="{% if sum_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                                href="{% url 'show_bag' %}">
+                                <div class=" text-center">
+                                    <div class="bag-place"><i class="fas fa-shopping-basket"></i></div>
+                                    <p class=" bag-place my-0">
+                                        {% if sum_total %}
+                                        ${{ sum_total|floatformat:2 }}
+                                        {% else %}
+                                        $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <div class=" row nav-look fixed-top">
+                <ul>
 
-                <li class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-product-colour">
-                    <a class="  nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i
-                            class="fas fa-arrow-right"></i></a></li>
-                <li class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-blog-colour"><a
-                        class="nav-colour remove-decoration" href="{% url 'blog' %}"> Blog <i
-                            class="fas fa-book-open"></i></a></li>
-                <li class="col-6 col-4-md-auto border hvr-sweep-to-bottom same-nav list-inline-item nav-home-colour"><a
-                        class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i
-                            class="fas fa-home"></i></a></li>
-                <li
-                    class=" border nav-profile-colour hvr-sweep-to-bottom list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
-                    <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#"
-                        id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        My Account<i class="fas fa-user"></i>
-                    </a>
-                    <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li
+                        class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-product-colour">
+                        <a class="  nav-colour navfix remove-decoration" href="{% url 'items' %}">Items <i
+                                class="fas fa-arrow-right"></i></a></li>
+                    <li
+                        class="col-6 col-4-md-auto hvr-sweep-to-bottom border same-nav list-inline-item nav-blog-colour">
+                        <a class="nav-colour remove-decoration" href="{% url 'blog' %}"> Blog <i
+                                class="fas fa-book-open"></i></a></li>
+                    <li
+                        class="col-6 col-4-md-auto border hvr-sweep-to-bottom same-nav list-inline-item nav-home-colour">
+                        <a class="nav-colour remove-decoration" href="{% url 'home' %}"> Home <i
+                                class="fas fa-home"></i></a></li>
+                    <li
+                        class=" border nav-profile-colour hvr-sweep-to-bottom list-inline-item nav-drop same-nav col-6col-4-md-auto  nav-item dropdown">
+                        <a class=" remove-decoration nav-colour nav-colour dropdown-toggle" href="#"
+                            id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account<i class="fas fa-user"></i>
+                        </a>
+                        <ul class=" col-6 col-4-md-auto dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 
-                        {% if request.user.is_authenticated %}
-                        <li><a class="col-6 col-4-md-auto same hvr-sweep-to-bottom dropdown-item list-inline-item nav-profile-colour"
-                                href="{% url 'profile' %}"> My Profile <i class="fas fa-user"></i></a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a class="col-6 col-4-md-auto same hvr-sweep-to-bottom dropdown-item list-inline-item nav-profile-colour"
+                                    href="{% url 'profile' %}"> My Profile <i class="fas fa-user"></i></a></li>
 
-                        <li><a class="col-6 col-4-md-auto same dropdown-item hvr-sweep-to-bottom list-inline-item nav-profile-colour"
-                                href="{% url 'account_logout' %}">Logout <i class="fas fa-door-open"></i></a></li>
-                        {% else %}
+                            <li><a class="col-6 col-4-md-auto same dropdown-item hvr-sweep-to-bottom list-inline-item nav-profile-colour"
+                                    href="{% url 'account_logout' %}">Logout <i class="fas fa-door-open"></i></a></li>
+                            {% else %}
 
 
-                        <li>
-                            <hr class="col-6 col-4-md-auto dropdown-divider">
-                        </li>
-                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
-                                href="{% url 'account_signup' %}">Register</a><i class="fas fa-user"></i></li>
-                        <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
-                                href="{% url 'account_login' %}">Login</a><i class="fas fa-user"></i></li>
-                        {% endif %}
-                    </ul>
-                </li>
+                            <li>
+                                <hr class="col-6 col-4-md-auto dropdown-divider">
+                            </li>
+                            <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                    href="{% url 'account_signup' %}">Register</a><i class="fas fa-user"></i></li>
+                            <li><a class="col-6 col-4-md-auto same dropdown-item list-inline-item nav-profile-colour"
+                                    href="{% url 'account_login' %}">Login</a><i class="fas fa-user"></i></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
             </div>
-
-
-
 
             <!-- Begin Mailchimp Signup Form -->
 
@@ -179,16 +179,7 @@
                     </div>
                 </form>
             </div>
-
-
-
-
-
-
-
-
-
-
+        </div>
     </header>
     {% if messages %}
     <div class="message-container">
@@ -222,7 +213,7 @@
 
     {% block postload_js %}
 
-    <script type="text/javascript">
+    <script>
         //borrowed this toast script code from https://www.youtube.com/watch?v=fbXHOVp_L_4
         window.onload = (event) => {
             let messageAlert = document.querySelector('.toast');
@@ -230,7 +221,7 @@
             beAlert.show()
         }
     </script>
-    <script type='text/javascript'>
+    <script>
         (function ($) {
             window.fnames = new Array();
             window.ftypes = new Array();
@@ -264,10 +255,11 @@
 
         <a href="https://www.instagram.com/" class="footer-link " target="_blank" rel="noopener"
             aria-label="See images of our products here"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.privacypolicygenerator.info/live.php?token=QPfCSHOdkDAV7RxWzXc08jdF94d42vhZ" class="footer-link " target="_blank" rel="noopener"
+        <a href="https://www.privacypolicygenerator.info/live.php?token=QPfCSHOdkDAV7RxWzXc08jdF94d42vhZ"
+            class="footer-link " target="_blank" rel="noopener"
             aria-label="See images of our products here"><small>Privacy Policy</small> <i class="fas fa-info"></i></a>
-        
-        
+
+
 
 
 
