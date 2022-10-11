@@ -15,6 +15,8 @@ def all_items(request):
     A view to show all items, including search queries """
 
     items = Item.objects.all()
+    
+
     query = None
 
     if request.GET:
@@ -26,9 +28,11 @@ def all_items(request):
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             items = items.filter(queries)
+            
 
     context = {
         'items': items,
+        
         'search_items': query,
     }
 
