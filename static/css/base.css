@@ -271,10 +271,24 @@ strong {
 
 footer {
     
-    height: 30px;
+    height: 50px;
     width: 100%;
     background-color:#faedcd
    
+}
+
+
+.footer-link {
+    text-align: center;
+    font-size: 220%;
+    list-style: none;
+    margin-left: 65px;
+}
+.footer-link-two {
+    text-align: center;
+    font-size: 220%;
+    list-style: none;
+    margin-left: 705px;
 }
 
 
@@ -354,12 +368,12 @@ footer {
     
     width: min-content;
     height: min-content;
-    position: absolute;
+    position: fixed;
     z-index: 999999;
     border-radius: 15px;
     opacity: 95%;
-    left: -15px;
-    top: 330px;
+    left: -14px;
+    bottom: -35px;
     
     
 }
@@ -499,7 +513,7 @@ footer {
     }
     .same {
         position: inherit;
-        width: 50%;
+        width: 100%;
     }
     .search-form {
         position: relative;
@@ -663,6 +677,21 @@ footer {
         position: inherit;
         right: 130px;
         
+    }
+    .footer-link {
+        text-align: center;
+        font-size: 220%;
+        list-style: none;
+        margin-left: 65px;
+    }
+    .footer-link-two {
+        text-align: center;
+        font-size: 220%;
+        list-style: none;
+        margin-left: 115px;
+    }
+    #mc_embed_signup {
+        bottom: 5px;
     }
 
     
