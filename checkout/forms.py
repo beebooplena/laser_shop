@@ -3,13 +3,17 @@ from .models import Ordering
 
 
 class OrderingForm(forms.ModelForm):
+    """
+    OrderingForm code credited to code institute, from
+    the boutique ado project
+    """
     class Meta:
         model = Ordering
         fields = (
             'full_name', 'email', 'mobile_number',
             'street_address', 'city', 'zip_code',
             'country',)
-    
+
     def __init__(self, *args, **kwargs):
         """
         Adding placeholders and classes, this removes
@@ -29,7 +33,7 @@ class OrderingForm(forms.ModelForm):
             'street_address': 'Street Address',
             'country': 'Country',
             }
-        
+
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:

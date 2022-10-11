@@ -10,6 +10,9 @@ from userprofiles.models import CustomerProfile
 
 
 class Ordering(models.Model):
+    """
+    Model for Ordering
+    """
     ordering_number = models.CharField(
         max_length=32, null=False, editable=False
         )
@@ -47,7 +50,7 @@ class Ordering(models.Model):
         This code is borrowed from code institute from the boutique ado project
         """
         return uuid.uuid4().hex.upper()
-   
+
     def update_sum(self):
         """
         Update sum_total everytime a line item is added,
@@ -64,7 +67,6 @@ class Ordering(models.Model):
             self.ordering_total + self.delivery_payment - self.discount)
         self.save()
 
-   
     def save(self, *args, **kwargs):
         """
         If a ordering number does not exist before,
@@ -76,11 +78,14 @@ class Ordering(models.Model):
             self.ordering_number = self._generate_ordering_number()
         super().save(*args, **kwargs)
 
-   
     def __str__(self):
         return self.ordering_number
 
+
 class OrderingLineItem(models.Model):
+    """
+    Model for OrderingLineItem
+    """
     ordering = models.ForeignKey(
         Ordering, null=False, blank=False, on_delete=models.CASCADE,
         related_name='lineitems')
@@ -100,7 +105,7 @@ class OrderingLineItem(models.Model):
 
         self.lineitem_sum = self.item.price * self.amount
         super().save(*args, **kwargs)
-   
 
     def __str__(self):
-        return f'SKU {self.item.sku} on ordering {self.ordering.ordering_number}'
+        return f'SKU {self.item.sku} \
+                on ordering {self.ordering.ordering_number}'

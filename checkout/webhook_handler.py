@@ -13,12 +13,12 @@ from .models import Ordering, OrderingLineItem
 
 
 class StripeWH_Handler:
-    """ 
+    """
     Handle Stripe webhooks
     I borrowed this code from code institute, from the project
     boutique Ado
     """
-    
+
     def __init__(self, request):
         self.request = request
 
@@ -33,17 +33,18 @@ class StripeWH_Handler:
         )
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'ordering': ordering, 'lasershop_email': settings.DEFAULT_FROM_EMAIL})
-        
+            {'ordering': ordering,
+             'lasershop_email': settings.DEFAULT_FROM_EMAIL})
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
-    
+
     def handle_event(self, event):
-        """ 
+        """
         Handle a generic/unknown/unexpected webhook event
         I borrowed this code from code institute, from the project
         boutique Ado
@@ -71,27 +72,29 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-        
+
         # Update customer information if save_info was checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = CustomerProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_mobile_number = shipping_details.phone,
-                profile.default_zip_code = shipping_details.address.postal_code,
-                profile.default_street_address = shipping_details.address.line1,
-                profile.default_city = shipping_details.address.city,
-                profile.default_country = shipping_details.address.country
+                profile.default_mobile_number = \
+                    shipping_details.phone,
+                profile.default_zip_code = \
+                    shipping_details.address.postal_code,
+                profile.default_street_address = \
+                    shipping_details.address.line1,
+                profile.default_city = \
+                    shipping_details.address.city,
+                profile.default_country = \
+                    shipping_details.address.country
                 profile.save()
-
 
         ordering_exists = False
         attempt = 1
         while attempt <= 4:
-
             try:
-
                 ordering = Ordering.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
@@ -106,7 +109,7 @@ class StripeWH_Handler:
                 )
                 ordering_exists = True
                 break
-            
+
             except Ordering.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -140,7 +143,7 @@ class StripeWH_Handler:
                         item=item,
                         amount=values.get('amount'),
                         name_engraved=values.get('name')
-                        
+
                     )
                     ordering_line_item.save()
             except Exception as e:
@@ -164,4 +167,3 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
-        

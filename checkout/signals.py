@@ -3,6 +3,7 @@ from django.dispatch import receiver
 
 from .models import OrderingLineItem
 
+
 @receiver(post_save, sender=OrderingLineItem)
 def update_on_save(sender, instance, created, **kwargs):
     """
@@ -10,6 +11,7 @@ def update_on_save(sender, instance, created, **kwargs):
     Borrowed this code from code institute, boutique ado project
     """
     instance.ordering.update_sum()
+
 
 @receiver(post_delete, sender=OrderingLineItem)
 def delete_on_save(sender, instance, **kwargs):

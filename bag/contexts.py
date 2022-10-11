@@ -1,8 +1,6 @@
-
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from items.models import Item
-
 
 
 def bag_contents(request):
@@ -28,21 +26,14 @@ def bag_contents(request):
             total += amount * item.price
             item_many += amount
             sumup = total + delivery
-        
-
-        
 
         bag_items.append({
             'item_id': item_id,
             'amount': amount,
             'item': item,
             'engraved_name': values.get('name'),
-            
+
             })
-        print("*********")
-        print(bag)
-        print("*********")
-        
     sum_total = sumup
     context = {
         'bag_items': bag_items,
@@ -51,5 +42,4 @@ def bag_contents(request):
         'delivery': delivery,
         'sum_total': sum_total,
     }
-
     return context

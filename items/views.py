@@ -5,17 +5,12 @@ from django.db.models import Q
 from .models import Item
 
 
-
-
-# Create your views here.
-
 def all_items(request):
     """ This code is borrowed from boutique
     Ado project.
     A view to show all items, including search queries """
 
     items = Item.objects.all()
-    
 
     query = None
 
@@ -23,16 +18,15 @@ def all_items(request):
         if 's' in request.GET:
             query = request.GET['s']
             if not query:
-                messages.error(request, "Please try again, You didn`t write any words.")
+                messages.error(request,
+                               "You didn`t write any search words.")
                 return redirect(reverse('items'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            items = items.filter(queries)
-            
 
+            queries = Q(name__icontains=query) | \
+                Q(description__icontains=query)
+            items = items.filter(queries)
     context = {
         'items': items,
-        
         'search_items': query,
     }
 
@@ -41,18 +35,11 @@ def all_items(request):
 
 def item_detail(request, item_id):
     """ A view to be able to show one product and it`s details"""
-   
 
     item = get_object_or_404(Item, pk=item_id)
-   
-
-    
 
     context = {
         'item': item,
-        
-        
     }
 
     return render(request, 'items/item_detail.html', context)
-

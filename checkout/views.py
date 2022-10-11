@@ -31,7 +31,7 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request,'So sorry, Your payment \
+        messages.error(request, 'So sorry, Your payment \
             cannot be processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
@@ -66,7 +66,7 @@ def checkout(request):
                         item=item,
                         amount=values.get('amount'),
                         name_engraved=values.get('name')
-                        
+
                     )
                     ordering_line_item.save()
                 except Item.DoesNotExist:
@@ -85,9 +85,10 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There`s nothing in your bag at the moment")
+            messages.error(request,
+                           "There`s nothing in your bag at the moment")
             return redirect(reverse('items'))
-        
+
         bag_current = bag_contents(request)
         total = bag_current['sum_total']
         stripe_total = round(total * 100)
@@ -115,10 +116,6 @@ def checkout(request):
         else:
             ordering_form = OrderingForm()
 
-
-
-        
-
     if not stripe_public_key:
         messages.warning(request, 'stripe public key is missing. \
             Please set it in your environment')
@@ -131,6 +128,7 @@ def checkout(request):
     }
 
     return render(request, template, context)
+
 
 def checkout_success(request, ordering_number):
     """
@@ -153,10 +151,11 @@ def checkout_success(request, ordering_number):
                 'default_street_address': ordering.street_address,
                 'default_country': ordering.country,
             }
-            user_profile_form = CustomerProfileForm(profile_data, instance=profile)
+            user_profile_form = CustomerProfileForm(profile_data,
+                                                    instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-        
+
     messages.success(request, f'You successfully ordered! \
         Your order number is {ordering_number}. A confirmation \
             email will be sent to {ordering.email}')

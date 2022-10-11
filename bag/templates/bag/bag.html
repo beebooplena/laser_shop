@@ -4,78 +4,71 @@
 
 {% block content %}
 
-  
- 
-    
-        {% if bag_items %}
-          {% for item in bag_items %}
-          
-          <div class="card card close-up" style=" display:flexbox; ">
-            <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
-            
-            <ul class="list-group list-group-flush ">
-              
-                
-              <li class="list-group-item"><strong><h7>Amount:</h7></strong>
-                <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
-                  {% csrf_token %}
-                  <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20" data_item_id ={{item.item.id}} id="id_qty_{{ item.item.id}}">
-                  <strong><h7>Name:</h7></strong>
-                  <input class="form-control text_input" type="text" name="engraved_name" value={{item.engraved_name}} data_item_id ={{item.name}} id="id_qty_{{ item.name}}">
-                  <input type="submit" class="btn btn-primary hvr-sweep-to-bottom update-mobile" value="Update">
-                </form>
-                
-              </li>
-              <li class="list-group-item ">{{item.item.name}}</li>
-              <li class="list-group-item">Your engraved name:</li>
-              
-              <li class="list-group-item"> {{item.engraved_name}}</li>
-              <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
-              
-              <li class="list-group-item">Price: {{item.item.price}} $</li>
-              <li class="list-group-item "><a class="remove-item btn btn-danger hvr-sweep-to-bottom remove-mobile"  href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
-            </ul>
-          </div>
-        
-        
-          
+{% if bag_items %}
+{% for item in bag_items %}
 
-        
-          
-        
-            {% endfor %}
-            <div class="card cash">
-              <div class="card-body">
-                <p class="stylecheck">Your total is ${{ sum_total|floatformat:2 }}!</p>
-                <p class="stylecheck"> Delivery cost: ${{delivery|floatformat:2}}</p>
-              </div>
-              <a href="{% url 'items' %}" class="btn btn-primary">Keep shopping</a>
-              <li class="list-group-item"></li>
-            
-              
-              <a href="{% url 'checkout' %}" class="btn btn-primary">Secure Checkout</a>
-              <li class="list-group-item"></li>
-            
-          </div>
-        {% else %}
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><strong> Your bag is empty</strong></h5>
-            
-       
-            <a href="{% url 'items' %}" class="card-link"><span>Keep shopping</span> <i class="fas fa-arrow-right"></i></a>
-            
-          </div>
-        </div>
-       
-       
-        {% endif %}
-        
-    {% block postloadjs %}
-    {{ block.super }}   
-    {% endblock %}  
+<div class="card card close-up" style=" display:flexbox; ">
+  <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
 
+  <ul class="list-group list-group-flush ">
+
+
+    <li class="list-group-item"><strong>
+        <h7>Amount:</h7>
+      </strong>
+      <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
+        {% csrf_token %}
+        <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20"
+          data_item_id={{item.item.id}} id="id_qty_{{ item.item.id}}">
+        <strong>
+          <h7>Name:</h7>
+        </strong>
+        <input class="form-control text_input" type="text" name="engraved_name" value={{item.engraved_name}}
+          data_item_id={{item.name}} id="id_qty_{{ item.name}}">
+        <input type="submit" class="btn btn-primary hvr-sweep-to-bottom update-mobile" value="Update">
+      </form>
+
+    </li>
+    <li class="list-group-item ">{{item.item.name}}</li>
+    <li class="list-group-item">Your engraved name:</li>
+    <li class="list-group-item"> {{item.engraved_name}}</li>
+    <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
+    <li class="list-group-item">Price: {{item.item.price}} $</li>
+    <li class="list-group-item "><a class="remove-item btn btn-danger hvr-sweep-to-bottom remove-mobile"
+        href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
+  </ul>
+</div>
+
+{% endfor %}
+<div class="card cash">
+  <div class="card-body">
+    <p class="stylecheck">Your total is ${{ sum_total|floatformat:2 }}!</p>
+    <p class="stylecheck"> Delivery cost: ${{delivery|floatformat:2}}</p>
+  </div>
+  <a href="{% url 'items' %}" class="btn btn-primary">Keep shopping</a>
+  <li class="list-group-item"></li>
+
+
+  <a href="{% url 'checkout' %}" class="btn btn-primary">Secure Checkout</a>
+  <li class="list-group-item"></li>
+
+</div>
+{% else %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><strong> Your bag is empty</strong></h5>
+
+
+    <a href="{% url 'items' %}" class="card-link"><span>Keep shopping</span> <i class="fas fa-arrow-right"></i></a>
+
+  </div>
+</div>
+
+
+{% endif %}
+
+{% block postloadjs %}
+{{ block.super }}
 {% endblock %}
 
-
-
+{% endblock %}

@@ -16,6 +16,7 @@
   </div>
   <ul class="list-group list-group-flush rounded">
     <li class="list-group-item mobile-close">
+      <!--  Form inspired from code institute, from the boutique Ado -->
       <form class="form" action="{% url 'add_item_to_bag' item.id %}" method="POST">
         {% csrf_token %}
 
@@ -25,11 +26,11 @@
           <div class="col">
             <input class="form-control amount_input" type="number" name="amount" value="1" min="1" max="20"
               data_item_id={{item.id}} id="id_qty_{{ item.id}}">
-            <p class="mobile-text"><strong>If you want to add an engraved name, you can add it here. If not you can leave it
+            <p class="mobile-text"><strong>If you want to add an engraved name, you can add it here. If not you can
+                leave it
                 blank.</strong></p>
             <input class="form-control text_input" type="text" name="engraved_name" id='id_engraved_name'
               data_item_id={{item.name}} id="id_qty_{{ item.name}}">
-
 
           </div>
         </div>
@@ -37,7 +38,7 @@
           <a href="{% url 'items' %}" class=" btn-mobile btn btn-primary hvr-sweep-to-bottom">
             <span><strong>Keep shopping</strong></span>
           </a>
-          <input class="btn btn-success btn-mobile hvr-sweep-to-bottom" type="submit"  value="Add item to Bag">
+          <input class="btn btn-success btn-mobile hvr-sweep-to-bottom" type="submit" value="Add item to Bag">
         </div>
         <div>
           <input type="hidden" name="redirect_url" value="{{ request.path}}">
@@ -46,7 +47,7 @@
     </li>
 
   </ul>
-  
+
 </div>
 {% block postloadjs %}
 {{ block.super }}

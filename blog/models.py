@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 class BlogPost(models.Model):
+    """
+    Model for the blog
+    """
     title = models.CharField(max_length=260)
     blog_date = models.DateTimeField('Blog Date')
     blog_image = CloudinaryField('image', default='placeholder')
@@ -11,5 +15,3 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
-
-# Create your models here.
