@@ -493,7 +493,7 @@ footer {
     .nav-drop {
         width: 30%;
         left: 1px;
-        height: 55px;
+        height: 50px;
     }
       
     .card {
@@ -548,10 +548,10 @@ footer {
 
     .card-form {
         right: 100px;
-        width: max-content;
+        width: 80%;
         height: max-content;
         top: auto;
-        left: -9px;
+        left: -28px;
         bottom: 45px;
     }
 
@@ -610,8 +610,7 @@ footer {
     }
     
     .blog-card {
-        right: 30px;
-        width: auto;
+        left: 1px;
     }
 
     .bag-place {
