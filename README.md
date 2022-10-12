@@ -1,5 +1,5 @@
-# The Laserwood webstore site
-This is the webpage I created for the fifth milestone project(Fullstack frameworks with django)at code institute, diploma in Software Development. This is a webshop page called Laserwood. This is a erbshop where you can buy wood products and get your names engraved in them. You can visit the website here:https://laserwood.herokuapp.com/
+# The Laserwood Webstore Site
+This is the webpage I created for the fifth milestone project(Fullstack frameworks with django)at code institute, diploma in Software Development. This is a webshop page called Laserwood. This is a webshop where you can buy wood products and get your names engraved in them. You can visit the website here: https://laserwood.herokuapp.com/
 The website has a landing page, a page where you can browse products, Add your wished products in a shopping bag. A customer can edit or delete products in the shopping bag. By using stripe to set up payment method, the customer can "pay" securly with a test creditcard. The customer receives a confirmation email and can view personal information and order history. The page has also a small blog page where customers can read news about the webstore. Customers can also subscribe for more news. The webstore has a CRUD(create, read, update and delete) functionality and focus on the customer.
 
 ![image](https://res.cloudinary.com/dokp7kv2b/image/upload/v1665531725/responsive_oom1up.png)
@@ -8,19 +8,18 @@ The website has a landing page, a page where you can browse products, Add your w
 
 ## B2C e-commerce business model
 ### Value Propositions
-Our customers are people that wants a highly quality products and can customize them with engraved names. Our customers are people that see the value of having names on their everyday products. People that buys the product are often parents, families or friends that see the practical in having names on barbecue sticks, hammers, knives etc. It is also perfect for a unique present, so the customer age can be all from 16 - 100 years old. The customer group is very broad.
+Our customers are people that wants quality products and can customize them with engraved names. Our customers are people that see the value of having names on their everyday products. People that buys the product are often parents, families or friends that see the practical in having names on barbecue sticks, hammers, knives etc. It is also perfect for a unique present, so the customer age can be all from 16 - 100 years old. The customer group is very broad.
 
 ### Market opportunity
-The market space is big for this webshop. Our main customers are people that use social media daily, therefore we have chosen to use facebook, youtube and instagram. A facebook "businesspage" has been made to make people curious around our webstore and make people check out the webshop. Making blogpost on our facebook page/blog in our webstore/newsletters with marketing content is a nice way to find customers. Youtube videos and updating instagram with images from our store is also a nice way to show marketing content. Since this webshop is a small scale webstore business with few products and only 1 person working there. We must be careful not to grow to fast. Therefor the webstore will wait a bit with paid advertising/ influencer marketing or paying commissions to external websites. The website has done search engine optimizations.
-We will promote our products through facebook, instagram, webstore blog, newsletters. We will also do advertise our products as a nice gift for familymembers or friends. Our products do sometimes offer discounts. Our user will surely be glad to hear about descounts. The goal of this webstore is to grow steadily, grow our business and offer new products to our customers. The best marketing strategies would be to start with advertising trough social media. This small scale business have a small budget on marketing.
+The market space is big for this webshop. Our main customers are people that use social media daily, therefore we have chosen to use facebook, youtube and instagram. A facebook "businesspage" has been made to make people curious around our webstore and make people check out the webshop. Making blogpost on our facebook page/blog in our webstore/newsletters with marketing content is a nice way to find customers. Youtube videos and updating instagram with images from our store is also a nice way to show marketing content. Since this webshop is a small scale webstore business with few products and only 1 person working there. We must be careful not to grow to fast. Therefore the webstore will wait a bit with paid advertising/ influencer marketing or paying commissions to external websites. The website has done search engine optimizations.
+We will promote our products through facebook, instagram, webstore blog, newsletters. We will also advertise our products as a nice gift for familymembers or friends. Our products do sometimes offer discounts. Our user will surely be glad to hear about discounts. The goal of this webstore is to grow steadily, grow our business and offer new products to our customers. The best marketing strategies would be to start with advertising trough social media. This small scale business have a small budget on marketing.
 
 ![image](https://res.cloudinary.com/dokp7kv2b/image/upload/v1665532946/facebook_laserwood_ed9ldm.png)
 
 
 ## Ui and Ux
 ## Research
-I have worked as a school teacher and in an elderly home and having names on peoples things are practical, a timesaver and a necessity. 
-
+I have worked as a school teacher and in an elderly home, having names on peoples things are practical, a timesaver and a necessity. 
 
 
 ## Owner's goal
@@ -34,7 +33,6 @@ I have worked as a school teacher and in an elderly home and having names on peo
 * The owner wants the ability to add new blogposts.
 * The owner wants the ability to delete products.
 * The owner wants the ability to delete blog posts.
-
 
 
 
@@ -56,6 +54,7 @@ I have worked as a school teacher and in an elderly home and having names on peo
 
 ## User stories
 The users in this webpage is the owner and the customers. There can be many more userstories, but I choose these as my primary goals and aims for Laserwood webstore.
+
 Admin: 
 Laserwood webstore owner:
 * As an admin I can add products so that I can add more products in the shop
@@ -844,9 +843,7 @@ border: none; }
     
 
 * I used icons from font awesome
-
 * I used coolors.co to find a nice colour palette to my webpage.
-
 * I used youtube as a social media link.
 * I used instagram as a social media link.
 * I imported a font from google font.
