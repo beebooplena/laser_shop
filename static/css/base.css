@@ -144,6 +144,7 @@ header {
 .nav-drop {
     width: 14%;
     left: 1px;
+    height: 55px;
 }
 
 .nav-colour{
@@ -431,7 +432,7 @@ footer {
 
     .same {
         position: inherit;
-        width: 40%;
+        width: 100%;
     }
     
     .search-form {
@@ -482,18 +483,17 @@ footer {
     }
 
     .search {
-        
         width: 40%;
     }
 
     .search-btn {
-        
         bottom: 60px;
     }
 
     .nav-drop {
         width: 30%;
         left: 1px;
+        height: 55px;
     }
       
     .card {
@@ -590,7 +590,6 @@ footer {
     }
 
     footer {
-        
         height: 40px;
     }
 
