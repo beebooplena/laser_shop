@@ -11,7 +11,7 @@ body {
     font-weight: 700;
     background: url('https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg')no-repeat center center;
     background-size: cover;
-    height: 750px;
+    height: 980px;
 }
 
 header {
@@ -550,8 +550,9 @@ footer {
         right: 100px;
         width: max-content;
         height: max-content;
-        margin-bottom: 30px;
-        left: 17px;
+        top: auto;
+        left: -9px;
+        bottom: 45px;
     }
 
     .card-finish {
@@ -566,7 +567,7 @@ footer {
     .cash {
         flex-direction: unset;
         right: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 90px;
     }
    
     .search {
@@ -616,7 +617,7 @@ footer {
 
     .bag-place {
         position: inherit;
-        width: 50%;
+        width: 80%;
     }
 
     .mobile-text {

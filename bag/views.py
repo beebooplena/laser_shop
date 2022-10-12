@@ -31,9 +31,9 @@ def add_item_to_bag(request, item_id):
             return HttpResponse(status=500)
 
     engrave = str(request.POST.get('engraved_name'))
-    if len(engrave) >= 10:
+    if len(engrave) >= 20:
         messages.error(request, (
-            'Error! Your name was over 10 caracters'))
+            'Error! Your name was over 20 caracters'))
         return redirect(redirect_url)
     else:
         bag = request.session.get('bag', {})
