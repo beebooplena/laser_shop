@@ -12,11 +12,8 @@
       <a href="{{ post.blog_image.url}}" target="_blank">
         <img class=" img-image-close " src="{{post.blog_image.url}}" alt="barbeque sticks">
       </a></li>
-      <a href="{% url 'blog_post' post.pk %}" class="hvr-sweep-to-bottom btn btn-primary">Read more</a>
-      {% if request.user.is_superuser %}
-      <a href="{% url 'adding_post' %}" class="hvr-sweep-to-bottom btn btn-info">Add new blog post</a>
-      
-      {% endif %}
+    <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
+    <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
   </ul>
   {% endfor%}
 
