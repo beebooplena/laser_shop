@@ -4,18 +4,22 @@
 
 {% block content %}
 <div class=" card blog-card col-12 col-md-6">
-  <ul class="list-group list-group-flush ">
-    {% for post in posts %}
-    <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
-    <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
-    <li class="list-group-item list-group-item-success">
-      <a href="{{ post.blog_image.url}}" target="_blank">
-        <img class=" img-image-close " src="{{post.blog_image.url}}" alt="barbeque sticks">
-      </a></li>
-    <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
-    <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
-  </ul>
-  {% endfor%}
+    <ul class="list-group list-group-flush ">
+        {% for post in posts %}
+        <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
+        <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
+        <li class="list-group-item list-group-item-success">
+          
+            <a href="{{ post.blog_image.url}}" target="_blank">
+                <img class=" img-image-close " src="{{post.blog_image.url}}" alt="barbeque sticks">
+            </a></li>
+       
+        </a></li>
+        {% endif %}
+        <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
+        <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
+    </ul>
+    {% endfor%}
 
 </div>
 

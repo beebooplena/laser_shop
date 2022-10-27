@@ -9,15 +9,19 @@
     <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
     <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
     <li class="list-group-item list-group-item-success">
+
       <a href="{{ post.blog_image.url}}" target="_blank">
         <img class=" img-image-close " src="{{post.blog_image.url}}" alt="barbeque sticks">
       </a></li>
-      <a href="{% url 'blog_post' post.pk %}" class="hvr-sweep-to-bottom btn btn-primary">Read more</a>
-      {% if request.user.is_superuser %}
-      <a href="{% url 'adding_post' %}" class="hvr-sweep-to-bottom btn btn-info">Add new blog post</a>
-      <a href="{% url 'edit_blog' post.pk %}" class="hvr-sweep-to-bottom btn btn-warning">Edit</a>
-      
-      {% endif %}
+
+    <a href="{% url 'blog_post' post.pk %}" class="hvr-sweep-to-bottom btn btn-primary">Read more</a>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'adding_post' %}" class="hvr-sweep-to-bottom btn btn-info">Add new blog post</a>
+    <a href="{% url 'edit_blog' post.pk %}" class="hvr-sweep-to-bottom btn btn-warning">Edit</a>
+    <a href="{% url 'delete_blog' post.pk %}" class="hvr-sweep-to-bottom btn btn-danger"
+      onclick="return confirm('Delete! Are you sure?');">Delete</a>
+
+    {% endif %}
   </ul>
   {% endfor%}
 

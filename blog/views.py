@@ -88,3 +88,18 @@ def edit_blog(request, pk):
     }
 
     return render(request, template, context)
+
+
+def delete_blog(request, pk):
+
+    """
+    Delete post from the webstore
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+
+    blog = get_object_or_404(BlogPost, pk=pk)
+    blog.delete()
+    messages.success(request, 'Blog post was successfully deleted')
+    return redirect(reverse('blog'))
