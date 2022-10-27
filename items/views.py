@@ -93,3 +93,14 @@ def edit_item(request, item_id):
     }
 
     return render(request, template, context)
+
+
+def delete_item(request, item_id):
+
+    """
+    Delete item from the webstore
+    """
+    item = get_object_or_404(Item, pk=item_id)
+    item.delete()
+    messages.success(request, 'Item was successfully deleted')
+    return redirect(reverse('items'))

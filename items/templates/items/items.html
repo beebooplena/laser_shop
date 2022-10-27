@@ -29,6 +29,10 @@
                         discoount! <i class="fas fa-cut"></i></p>
                     <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>
                     <a href="{% url 'item_detail' item.id %}" class="hvr-sweep-to-bottom btn btn-primary">Read more</a>
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'edit_item' item.id %}" class="hvr-sweep-to-bottom btn btn-info">Edit</a>
+                    <a href="{% url 'delete_item' item.id %}" class="hvr-sweep-to-bottom btn btn-danger" onclick="return confirm('Delete! Are you sure?');">Delete</a>
+                    {% endif %}
                 </div>
             </div>
 
@@ -49,6 +53,10 @@
 
                     <p class="card-text">{{item.price}} <i class="fas fa-dollar-sign"></i></p>
                     <a href="{% url 'item_detail' item.id %}" class="hvr-sweep-to-bottom btn btn-primary">Read more</a>
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'edit_item' item.id %}" class="hvr-sweep-to-bottom btn btn-info">Edit</a>
+                    <a href="{% url 'delete_item' item.id %}" class="hvr-sweep-to-bottom btn btn-danger" onclick="return confirm('Delete! Are you sure?');">Delete</a>
+                    {% endif %}
                 </div>
             </div>
 
