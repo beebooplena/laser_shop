@@ -21,8 +21,10 @@ def profile(request):
                 profile updated successfully')
         else:
             messages.error(request, 'Update failed. Please try again')
-    form = CustomerProfileForm(instance=profile)
+    else:
+        form = CustomerProfileForm(instance=profile)
     orders = profile.orders.all().order_by('-time')
+    
     template = 'userprofile/profile.html'
     context = {
         'form': form,

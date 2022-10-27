@@ -7,7 +7,12 @@
 {% for item in bag_items %}
 
 <div class="card card close-up" style=" display:flexbox; ">
+    {% if item.image %}
     <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
+    {% else%}
+    <img class="img-fluid rounded"
+        src="https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg" alt="outside bonfire">
+    {% endif %}
     <ul class="list-group list-group-flush ">
         <li class="list-group-item">
             <strong>

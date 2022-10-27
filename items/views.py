@@ -50,7 +50,17 @@ def adding_item(request):
     """
     Adding items to the webstore
     """
-    form = ItemForm()
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You successfully added an Item')
+            return redirect(reverse('adding_item'))
+        else:
+            messages.error(request, 'Error. Please make sure that the form is valid.')
+    else:
+        form = ItemForm()
+        
     template = 'items/adding_item.html'
     context = {
         'form': form,

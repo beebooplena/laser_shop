@@ -6,9 +6,18 @@
 
 
 <div class="card close-up " style="width: 23rem; height:440px; ">
+  {% if item.image %}
   <a href="{{ item.image.url}}" target="_blank">
     <img class=" img-image-close " src="{{item.image.url}}" alt="{{item.name}}" style="width: 23rem; height:190px;">
   </a>
+  {% else%}
+  <a href="https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg" target="_blank">
+    <img class=" img-image-close "
+      src="https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg" alt="outside bonfire"
+      style="width: 23rem; height:190px;">
+  </a>
+
+  {% endif %}
   <div class="card-body close-text">
     <h5 class="card-title"><strong>{{item.name}}</strong></h5>
     <p class="mobile-text card-text">{{item.description}}</p>
@@ -24,11 +33,11 @@
         <div class="col">
           <p class="mobile-text"><strong>Amount:</strong></p>
           <div class="col">
-            <input class="form-control amount_input" type="number" name="amount" value="1" min="1" max="20" >
+            <input class="form-control amount_input" type="number" name="amount" value="1" min="1" max="20">
             <p class="mobile-text"><strong>If you want to add an engraved name, you can add it here. If not you can
                 leave it
                 blank.</strong></p>
-            <input class="form-control text_input" type="text" name="engraved_name" id='id_engraved_name' >
+            <input class="form-control text_input" type="text" name="engraved_name" id='id_engraved_name'>
 
           </div>
         </div>
