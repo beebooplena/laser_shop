@@ -60,10 +60,36 @@ def adding_item(request):
             messages.error(request, 'Error. Please make sure that the form is valid.')
     else:
         form = ItemForm()
-        
+
     template = 'items/adding_item.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_item(request, item_id):
+    """
+    Editing items in the webstore
+    """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You successfully updated the item')
+            return redirect(reverse('item_detail', args=[item.id]))
+        else:
+            messages.error(request, 'Error. Please ensure that the form is valid')
+    else:
+        form = ItemForm(instance=item)
+        messages.info(request, f'You are now editing {item.name}')
+
+    template = 'items/edit_item.html'
+    context = {
+        'form': form,
+        'item': item,
     }
 
     return render(request, template, context)
