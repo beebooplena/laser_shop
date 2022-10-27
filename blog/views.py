@@ -55,3 +55,36 @@ def adding_post(request):
     }
 
     return render(request, template, context)
+
+
+def edit_blog(request, pk):
+    """
+    Editing blogposts in the webstore
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that')
+        return redirect(reverse('home'))
+    
+    posts = BlogPost.objects.all()
+
+    blog = get_object_or_404(BlogPost, pk=pk)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You successfully updated the blogpost')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(request, 'Error. Please ensure that the form is valid')
+    else:
+        form = BlogForm(instance=blog)
+        messages.info(request,'You are now editing blog post')
+
+    template = 'blog/update_blog.html'
+    context = {
+        'form': form,
+        'blog': blog,
+        'posts': posts,
+    }
+
+    return render(request, template, context)
