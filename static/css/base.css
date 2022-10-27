@@ -260,6 +260,12 @@ header {
     width: 500px;
     height: 750px;
 }
+.adding-form {
+    right: 750px;
+    width: 500px;
+    height: 1050px;
+    
+}
 
 .card-finish {
     right: 750px;

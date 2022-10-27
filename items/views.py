@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from .models import Item
+from .forms import ItemForm
 
 
 def all_items(request):
@@ -43,3 +44,16 @@ def item_detail(request, item_id):
     }
 
     return render(request, 'items/item_detail.html', context)
+
+
+def adding_item(request):
+    """
+    Adding items to the webstore
+    """
+    form = ItemForm()
+    template = 'items/adding_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
