@@ -7,22 +7,27 @@
 {% if bag_items %}
 {% for item in bag_items %}
 
-<div class="card card close-up" style=" display:flexbox; ">
-  {% if item.image %}
+<div class="card card close-up">
+  {% if item.item.image %}
+  <a href="{{item.item.image.url}}" target="_blank">
   <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
+  </a>
   {% else%}
+  <a href="{{item.image.url}}" target="_blank"></a>
   <img class="img-fluid rounded"
     src="https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg" alt="outside bonfire">
+  </a>
   {% endif %}
   <ul class="list-group list-group-flush ">
 
 
-    <li class="list-group-item"><strong>
-        <h7>Amount:</h7>
-      </strong>
+    <li class="list-group-item">
       <form class="form update-form" method="POST" action="{% url 'update_bag' item.item_id %}">
+        <strong>
+          <h7 class="update-form">Amount:</h7>
+        </strong>
         {% csrf_token %}
-        <input class="form-control amount_input" type="number" name="amount" value={{item.amount}} min="1" max="20"
+        <input class="form-control" type="number" name="amount" value={{item.amount}} min="1" max="20"
           data_item_id={{item.item.id}} id="id_qty_{{ item.item.id}}">
         <strong>
           <h7>Name:</h7>
@@ -38,7 +43,7 @@
     <li class="list-group-item"> {{item.engraved_name}}</li>
     <li class="list-group-item">sku:{{item.item.sku|upper}}</li>
     <li class="list-group-item">Price: {{item.item.price}} $</li>
-    <li class="list-group-item "><a class="remove-item btn btn-danger hvr-sweep-to-bottom update-mobile"
+    <li class="list-group-item "><a class="update-form remove-item btn btn-danger hvr-sweep-to-bottom update-mobile"
         href="remove_bag/{{ item.item_id }}" onclick="return confirm('Delete! Are you sure?');">Delete</a> </li>
   </ul>
 </div>
@@ -58,7 +63,7 @@
 
 </div>
 {% else %}
-<div class="card" style="width: 18rem;">
+<div class="card" style = "width: 23rem; height:190px;">
   <div class="card-body">
     <h5 class="card-title"><strong> Your bag is empty</strong></h5>
 

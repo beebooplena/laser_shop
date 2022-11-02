@@ -20,7 +20,13 @@
             {% if item.discount == True %}
             <div class="card " style="width: 18rem;">
                 <a href="{% url 'item_detail' item.id %}">
+                    {% if item.image %}
                     <img class="card-img-top img-fluid" src="{{item.image.url}}" alt="{{item.name}}">
+                    {% else%}
+                    <img class="card-img-top img-fluid"
+                        src="https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg"
+                        alt="outside bonfire">
+                    {% endif %}
                 </a>
                 <div class="card-body card-size ">
                     <h5 class="card-title"><strong>{{item.name}}</strong></h5>

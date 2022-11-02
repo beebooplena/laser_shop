@@ -5,13 +5,19 @@
     border: none;
 }
 /* css base.html */
+html {
+    min-height: 100%;
+}
 
 body {
     font-family:'Lato', serif ;
     font-weight: 700;
     background: url('https://res.cloudinary.com/dokp7kv2b/image/upload/v1665433332/laser_main_ld3azo.jpg')no-repeat center center;
     background-size: cover;
-    height: 980px;
+    height: auto;
+    
+    object-fit: cover;
+    
 }
 
 header {
@@ -86,6 +92,7 @@ header {
 .update-mobile {
     margin-top: 6px;
     left: 15px;
+   
     
 }
 .account-buttons {
@@ -118,6 +125,10 @@ header {
     text-decoration: none;
 }
 
+.dropdown-menu {
+    min-width: 15rem;
+}
+
 .same-nav {
     margin-top: 5px;
     width: 11%;
@@ -134,7 +145,6 @@ header {
 }
 
 .same {
-    float: right;
     letter-spacing: 3px;
     font-size: large;
     text-align: center;
@@ -189,11 +199,11 @@ header {
 }
 
 .blog-card {
-    right: 648px;
     width: 450px;
-    height: 550px;
+    right: 600px;
     text-align: center;
     padding: 6px;
+    margin-bottom: 200px;
 }
 
 .closer-up {
@@ -209,8 +219,8 @@ header {
 }
 
 .cash {
-    position: fixed;
-    right: 20px;
+    
+    
     top: 200px;
 }
 
@@ -238,9 +248,9 @@ header {
 }
 
 .card {
+    right: 130px;
     float: right;
     background-color: #faedcd;
-    right: 130px;
     top: 15px;
     opacity: 90%;
     border-radius: 25px;
@@ -353,15 +363,15 @@ footer {
 /* Mailchimp */
 #mc_embed_signup {
     background:rgb(225, 243, 228); 
-    clear:left; 
-    width: min-content;
-    height: min-content;
+    
+    
     position: fixed;
-    z-index: 999999;
+    
     border-radius: 15px;
+    top: 185px;
     opacity: 95%;
-    left: -14px;
-    bottom: -35px;
+    left: 600px;
+    
 }
 
 /* stripe css checkout. borrowed css from code institute,
@@ -527,7 +537,7 @@ footer {
 /* style for the media queries 360px */
 @media screen and (max-width:360px) {
     body {
-        height: 1300px
+        height: auto;
     }
 
     header {
@@ -548,16 +558,16 @@ footer {
         position: relative;
         width: min-content;
         height: min-content;
-        right: 15px;
+        right: 29px;
         top: 40px;
     }
 
     .card-form {
         right: 100px;
-        width: 80%;
+        width: 90%;
         height: max-content;
         top: auto;
-        left: -28px;
+        left: -15px;
         bottom: 45px;
     }
 
@@ -572,7 +582,7 @@ footer {
         
     .cash {
         flex-direction: unset;
-        right: 50px;
+        left: 0px;
         margin-bottom: 90px;
     }
    
@@ -617,6 +627,9 @@ footer {
     
     .blog-card {
         left: 1px;
+        width: auto;
+        border-radius: 25px;
+        margin-bottom: 200px;
     }
 
     .bag-place {
@@ -631,6 +644,8 @@ footer {
 
     .form-control {
         text-align: center;
+        
+        width: 80%;
     }
 
     .message-container {
@@ -652,8 +667,33 @@ footer {
         margin-left: 115px;
     }
 
+  
     #mc_embed_signup {
-        bottom: 5px;
+        width: 80%;
+        position: inherit;
+        margin-left: 40px;
+        margin-top: 420px;
+        margin-bottom: 200px;
     }
 
+   
+    #mc_embed_signup form {
+        width: 80%;
+    }
+
+    .amount_input{
+        margin-left: 30px;
+    }
+
+    .form-control {
+        margin-left: 20px;
+    }
+    .update-form {
+        margin-right: 20px;
+        text-align: center;
+    }
+    .text-danger {
+        margin-left: 10px;
+    }
+   
 }

@@ -7,7 +7,7 @@
 {% for item in bag_items %}
 
 <div class="card card close-up" style=" display:flexbox; ">
-    {% if item.image %}
+    {% if item.item.image %}
     <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
     {% else%}
     <img class="img-fluid rounded"
@@ -93,11 +93,11 @@
                     <i class="fas fa-lock"></i>
                 </span>
             </button>
-            <p class="small text-danger my-0">
+            <p class=" update-mobile small text-danger my-0">
                 <span class="icon">
                     <i class="fas fa-exclamation-circle"></i>
                 </span>
-                <span>Your card will be charged <strong>${{ sum_total|floatformat:2 }}</strong></span>
+                <span >Your card will be charged <strong>${{ sum_total|floatformat:2 }}</strong></span>
             </p>
         </div>
     </form>
