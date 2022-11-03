@@ -5,6 +5,8 @@ from .models import Item, Category
 class ItemForm(forms.ModelForm):
     """
     A form for the edit/Add items
+    This code is inspired from the
+    boutique ado project, code institute.
     """
     class Meta:
         model = Item

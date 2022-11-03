@@ -26,8 +26,9 @@ class CustomerProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 @receiver(post_save, sender=User)
-def create_or_update_customer_profile(sender,instance, created, **kwargs):
+def create_or_update_customer_profile(sender, instance, created, **kwargs):
     """
     Update or create the customer profile
     This function is borrowed from code institute
