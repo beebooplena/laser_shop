@@ -10,7 +10,7 @@
         <form method="POST" action="{% url 'adding_post' %}" class="form mb-2" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | crispy }}
-            <div>
+            <div class="add-blog">
                 <a class="btn btn-primary btn-mobile hvr-sweep-to-bottom" href="{% url 'blog' %}"> Cancel</a>
                 <button class="btn btn-success btn-mobile hvr-sweep-to-bottom" type="submit">Add Post</button>
             </div>

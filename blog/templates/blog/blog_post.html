@@ -3,9 +3,10 @@
 
 
 {% block content %}
-<div class=" card blog-card col-12 col-md-6">
+
+{% for post in posts %}
+<li class=" card blog-card col-12 col-md-6">
     <ul class="list-group list-group-flush ">
-        {% for post in posts %}
         <li class="list-group-item list-group-item-success">Title: {{post.title}}</li>
         <li class="list-group-item list-group-item-success">Date: {{post.blog_date}}</li>
         <li class="list-group-item list-group-item-success">
@@ -18,12 +19,13 @@
 
         <li class="list-group-item list-group-item-success">post: {{post.post}}</li>
         <li class="list-group-item list-group-item-success">Author: {{post.author}}</li>
-        <li class="list-group-item list-group-item-success"><a class="btn btn-primary btn-mobile update-mobile hvr-sweep-to-bottom"
-                href="{% url 'blog' %}"> Blog</a></li>
+        <li class="list-group-item list-group-item-success"><a
+                class="btn btn-primary btn-mobile update-mobile hvr-sweep-to-bottom" href="{% url 'blog' %}"> Blog</a>
+        </li>
     </ul>
     <br>
     {% endfor%}
 
-</div>
+</li>
 
 {% endblock %}

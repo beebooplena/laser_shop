@@ -6,7 +6,7 @@
 
 {% for item in bag_items %}
 
-<div class="card card close-up" style=" display:flexbox; ">
+<div class="card close-up" style=" display:flexbox; ">
     {% if item.item.image %}
     <img class="img-fluid rounded" src="{{item.item.image.url}}" alt="{{item.item.name}}">
     {% else%}

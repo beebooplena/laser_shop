@@ -196,6 +196,7 @@ header {
     height: min-content;
     right: 648px;
     margin-bottom: 100px;
+    margin-right: 200px;
 }
 
 .blog-card {
@@ -225,7 +226,7 @@ header {
 }
 
 .mobile-close {
-    bottom: 40px;
+    bottom: 55px;
 }
 
 .card-size {
@@ -248,6 +249,7 @@ header {
 }
 
 .card {
+    left: 0px;
     right: 130px;
     float: right;
     background-color: #faedcd;
@@ -271,10 +273,14 @@ header {
     height: 750px;
 }
 .adding-form {
-    right: 750px;
+    right: 800px;
     width: 500px;
-    height: 1050px;
-    
+    margin-right: 200px;
+   
+}
+
+.add-blog {
+    margin-bottom: 60px;
 }
 
 .card-finish {
@@ -284,9 +290,18 @@ header {
     text-align: center;
 }
 
+.card-history {
+    right: 648px;
+    width: 450px;
+    height: auto;
+    text-align: center;
+    padding: 6px;
+    margin-bottom: 40px;
+}
+
 .card-profile {
     right: 648px;
-    width: 350px;
+    width: 450px;
     height: 750px;
     text-align: center;
     padding: 6px;
@@ -415,17 +430,71 @@ footer {
     border: 1px solid #000;
 }
 
-/* style for the media queries 878px */
-@media screen and (max-width:878px) {
+/* style for the media queries 820px */
+@media screen and (max-width:820px) {
     
-    .card {
+    body {
+        height: auto;
+    }
+
+
+    #mc_embed_signup {
+        width: 50%;
+        position: inherit;
+        margin-left: 40px;
         
-        right: 50px;
+       
+    }
+
+    .card-finish {
+        margin-bottom: 30px;
+        left: 0px;
+    }
+
+    .card {
+        left: 0px;
+    }
+
+    .card-form {
+        right: 100px;
+        width: 90%;
+        height: max-content;
+        top: auto;
+        left: -15px;
+        bottom: 45px;
     }
 
     .card-form {
         right: 180px;
         width: 300px;
+    }
+
+    .cash {
+        flex-direction: unset;
+        left: 0px;
+        margin-bottom: 90px;
+    }
+
+
+    .blog-card {
+        width: 500px;
+        
+        text-align: center;
+        padding: 6px;
+        margin-bottom: 100px;
+    }
+
+    .card-profile {
+        
+        right: 70px;
+        width: 80%;
+        margin-bottom: 40px;
+    }
+    .card-history {
+        
+        right: 70px;
+        width: 80%;
+        margin-bottom: 40px;
     }
 
     .logo-text {
@@ -454,6 +523,33 @@ footer {
     .search-form {
         
         margin-top: 10px;
+    }
+
+    .privacy {
+        position: inherit;
+        left: 40px;
+    }
+
+    .footer-link {
+        text-align: center;
+        list-style: none;
+        margin-left: 400px;
+    }
+
+    .footer-link-two {
+        text-align: center;
+        margin-left: 15px;
+        list-style: none;
+        position: inherit;
+        left: 300px;
+    }
+
+
+    .adding-form {
+        
+        top: 2px;
+        margin-bottom: 50px;
+        right: 70px;
     }
 
 }
@@ -623,6 +719,9 @@ footer {
         position: inherit;
         width: min-content;
         height: min-content;
+        left: 20px;
+        display: inline-table;
+        margin-right: 0px;
     }
     
     .blog-card {
@@ -655,19 +754,20 @@ footer {
 
     .footer-link {
         text-align: center;
-        font-size: 220%;
         list-style: none;
-        margin-left: 65px;
     }
 
     .footer-link-two {
         text-align: center;
-        font-size: 220%;
+        margin-left: 15px;
         list-style: none;
-        margin-left: 115px;
+        position: inherit;
     }
 
-  
+    .privacy {
+        position: inherit;
+    }
+   
     #mc_embed_signup {
         width: 80%;
         position: inherit;
@@ -694,6 +794,35 @@ footer {
     }
     .text-danger {
         margin-left: 10px;
+    }
+
+    .adding-form {
+        width: 90%;
+        top: 2px;
+        margin-bottom: 40px;
+        left: 180px;
+    }
+    .add-blog {
+        margin-bottom: 50px;
+    }
+    .card-size {
+        margin-bottom: 10px;
+    }
+    .card-profile {
+        width: 80%;
+        
+    }
+    .card-history {
+        width: auto;
+        right: 70px;
+
+    }
+    .closer-up {
+        width: 80%;
+        margin-right: 35px;
+    }
+    .mobile-style {
+        margin-right: 30px;
     }
    
 }
