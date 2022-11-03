@@ -7,7 +7,7 @@ from .forms import BlogForm
 
 
 def show_blog(request):
-    """ This will render blog page """
+    """ This will render the blog page """
     posts = BlogPost.objects.all()
 
     context = {
@@ -31,12 +31,13 @@ def blog_post(request, pk):
 @login_required
 def adding_post(request):
     """
-    Adding items to the webstore
+    Adding items to the webstore. This code
+    is borrowed from the boutique ado project
+    from code institute.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
-    
 
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
@@ -45,27 +46,32 @@ def adding_post(request):
             messages.success(request, 'You successfully added a blog post')
             return redirect(reverse('blog'))
         else:
-            messages.error(request, 'Error. Please make sure that the form is valid.')
+            messages.error(request,
+                           'Error. Please make sure that the form is valid.')
     else:
         form = BlogForm()
 
     template = 'blog/add_blog.html'
     context = {
         'form': form,
-        
+
     }
 
     return render(request, template, context)
 
+
 @login_required
 def edit_blog(request, pk):
     """
-    Editing blogposts in the webstore
+    Editing blogposts in the webstore.
+    This code is borrowed from the
+    boutique ado project from the
+    code institute.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
         return redirect(reverse('home'))
-    
+
     posts = BlogPost.objects.all()
 
     blog = get_object_or_404(BlogPost, pk=pk)
@@ -76,10 +82,11 @@ def edit_blog(request, pk):
             messages.success(request, 'You successfully updated the blogpost')
             return redirect(reverse('blog'))
         else:
-            messages.error(request, 'Error. Please ensure that the form is valid')
+            messages.error(request,
+                           'Error. Please ensure that the form is valid')
     else:
         form = BlogForm(instance=blog)
-        messages.info(request,'You are now editing blog post')
+        messages.info(request, 'You are now editing blog post')
 
     template = 'blog/update_blog.html'
     context = {
@@ -90,11 +97,15 @@ def edit_blog(request, pk):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_blog(request, pk):
 
     """
-    Delete post from the webstore
+    Delete post from the webstore.
+    This code is inspired from the
+    boutique ado project from
+    code institute
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')

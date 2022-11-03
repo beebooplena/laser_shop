@@ -51,6 +51,9 @@ def item_detail(request, item_id):
 def adding_item(request):
     """
     Adding items to the webstore
+    This code is borrowed from the
+    boutique ado project from
+    the code institute.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
@@ -63,7 +66,8 @@ def adding_item(request):
             messages.success(request, 'You successfully added an Item')
             return redirect(reverse('adding_item'))
         else:
-            messages.error(request, 'Error. Please make sure that the form is valid.')
+            messages.error(request,
+                           'Error. Please make sure that the form is valid.')
     else:
         form = ItemForm()
 
@@ -78,7 +82,10 @@ def adding_item(request):
 @login_required
 def edit_item(request, item_id):
     """
-    Editing items in the webstore
+    Editing items in the webstore.
+    This code is borrowed from the
+    boutique ado project from
+    the code institute.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')
@@ -92,7 +99,8 @@ def edit_item(request, item_id):
             messages.success(request, 'You successfully updated the item')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Error. Please ensure that the form is valid')
+            messages.error(request,
+                           'Error. Please ensure that the form is valid')
     else:
         form = ItemForm(instance=item)
         messages.info(request, f'You are now editing {item.name}')
@@ -110,7 +118,10 @@ def edit_item(request, item_id):
 def delete_item(request, item_id):
 
     """
-    Delete item from the webstore
+    Delete item from the webstore.
+    This code is borrowed from the
+    boutique ado project from
+    the code institute.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that')

@@ -316,6 +316,16 @@ Because of lack of time, I choosed to manually test my website.
 * I check if I can subscribe. I enter an email and click subscribe. This worked.
 * I check if I can subscribe. I enter a non email and click sunscribe. It did not work.
 * I click on shopping bag icon, to check if I am navigated to shopping bag page.
+* When changing from a normal user to a superuser. I can see an edit button and delete button beside each item read more button.
+* When changing from a normal user to a superuser. My account dropdown nav menu, now includes an item managment button.
+* I click on item managment button, it works. I am navigated to an add a new item form page.
+* I add information in the new item form and click on the 'add item' button, a new item is included on the items page.
+* I check if I can add all the information to the add new item form without a photo, I click on the 'add item' button. A new item is included on the items page with a default image.
+* As a superuser, I click on the delete button in the items page, it works. The item is deleted.
+* As a superuser, I click on the edit button in the items page, it works. I am navigated to an edit item page form.
+* As a superuser, I check if I can change all the information in the edit item form, I then click on the 'edit' button. I can see that the item is updated.
+* As a superuser, I check if the cancel button works in the edit item page form, it does. I am navigated to the items page.
+* As a normal user, I try to access the item managment page by writing in the url bar, I can not access that page.
 
 ### item detail page
 * I check if I can add a number in amount and a name in name, I can.
@@ -350,11 +360,13 @@ I add my information again in the form with test credit card number. The spinner
 * As an unregistered user, I can not see save info box in the checkout page.
 * As a customer guest without an account, I try to buy products, I can.
 
+
 ### checkout success page
 * I check if my order information matches with the item or items that I choosed.
 * I click on order link, and I am navigated to the order information.
 * I check if I as a customer receives order confirmation, I do.
 * I click on the keep shopping button, I am navigated to items page.
+* I check if I get a confirmation email, I do.
 
 
 ### profile page
@@ -366,12 +378,24 @@ It works.
 
 ### Blog page
 * I check if I can click on blog button in my navigation, I am navigated to blog page.
-* I can read the blog post
+* I click on the 'read more' button, the post appears, I can read the blog post.
+* I check if the add blog post button appears when changing from a normal user to a superuser. The add post button appears
+* I check if the delete blog post button appears when changing from a normal user to a superuser. The delete button appears
+* I check if the edit blog post button appears when changing from a normal user to a superuser. The edit button appears.
+* I check if I can click on an add blog post button, I am navigated to an add new blog post form.
+* I check if the add new blog post form works, I add all the information and check if the 'add post' button submits the form and it does. I also see the new blog post in the blog page.
+* I check if I can add a blog page without adding a picture, it works. An default image appears in the blog post.
+* I check if the cancel button in the add blog post form works, it does. I am navigated to the blog page again.
+* I click on the edit button for the blog page works, it does. I am navigated to an updated form for blog posts.
+* I check if I can change all the information in the edit blog form, I click on the 'update post' button. the blog post is now updated.
+* I check if the cancel button works on the edit blog form. It does, I am navigated back to the blog page.
+* I check if I can delete a blog post. I click on the delete button, an alert appears "Delete! Are you sure" message appears. I click on the ok button, and the blog post is deleted.
 
 ### Account pages
 * I check if I can login as a registered user, I can.
 * I check if I can logout as a registered user, I can.
 * I check if I can register as a new user, I can.
+* I check if I get a confirmation email, I do.
 * I check if I can login without being a registered user, I can not.
 * I check if I can go to profile page withour being a registred user, I can not.
 
@@ -419,6 +443,8 @@ But it was the only way to be able to not overwrite the bag, if the bag containe
 * In the profile page. After adding delivery information and user information in the checkoutform. I can see that the profile
 information in the profile page is wrapped in parantheses. The user needs to remove the parantheses.
 
+* When you want to choose a blog to read, when you click 'read more' button on a blog post, you can read all the blog posts, but you maybe just want to read a specific one. I did not have time to fix that bug before assessment deadline.
+
 ## Deployment
 It can be wise to deploy to heroku in the very beginning of your project. I will write a step by step from installing django till deployment. Remember to hide your secret codes in an env.py
 In terminal, write heroku login -i
@@ -437,7 +463,7 @@ then write:
  postgres database url. Add this in your env.py file.
 In your settings.py add these lines instead of the default information
 about database.
-
+```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -452,7 +478,7 @@ else:
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
-
+```
 In your terminal, write:
 *  python3 manage.py showmigrations
 *  python3 manage.py migrate
@@ -482,7 +508,10 @@ In Heroku, remember to add all configs! Like:
 * cloudinary url in config vars.
 
 In your settings.py You must add your allowed_hosts.
-write: ALLOWED_HOSTS=['yourappname.herokuapp.com','localhost']
+write: 
+```
+ALLOWED_HOSTS=['yourappname.herokuapp.com','localhost']
+```
 
 Now commit and push
 And after you write 
@@ -498,6 +527,7 @@ I would like to thank the slack community.
 
 * I got inspired from the boutique ado project, code institute. I have borrowed the code for setting up the stripe, webhook_handler, webhooks.
 
+```
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -635,7 +665,8 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
-
+```
+```
     def handle_payment_intent_payment_failed(self, event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe
@@ -696,18 +727,18 @@ def webhook(request):
     # Call the event handler with the event
     response = event_handler(event)
     return response
+```
 
--------------------------------------------
+```
 
-/*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
     CSS from here: 
     https://stripe.com/docs/stripe-js
-*/
 
-/* Borrowed this code from code institute, from the
-   Boutique Ado project, by using my own variables names */
+
+ Borrowed this code from code institute, from the
+   Boutique Ado project, by using my own variables names 
 
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
@@ -732,12 +763,12 @@ let card = elements.create('card', {
     style: style
 });
 card.mount('#card-element');
+```
+```
+ Borrowed this code from code institute, from the
+   Boutique Ado project 
 
-
-/* Borrowed this code from code institute, from the
-   Boutique Ado project */
-
-// Handle realtime validation errors on the card element
+# Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     let errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -752,11 +783,12 @@ card.addEventListener('change', function (event) {
         errorDiv.textContent = '';
     }
 });
------------------------------------
-/* Borrowed this code from code institute, from the
-   Boutique Ado project */
+```
+```
+ Borrowed this code from code institute, from the
+   Boutique Ado project 
 
-// Handle form submit
+#  Handle form submit
 let form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
@@ -832,13 +864,15 @@ form.addEventListener('submit', function (ev) {
       location.reload();
     })
 });
------------------------------
+```
+
 * I also got inspired from the CL love running project to start with this default code to make it easier to use css. Here is the original code from the CL love running project:
 
+```
 *{ margin:0;
 padding: 0;
 border: none; }
-
+```
 
     
 

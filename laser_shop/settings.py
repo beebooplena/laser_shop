@@ -78,7 +78,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth'),],
+            os.path.join(BASE_DIR, 'templates', 'allauth'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,20 +99,19 @@ TEMPLATES = [
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
-    
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    
+
 ]
 
 SITE_ID = 1
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu73.gitpod.io']
-
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu73.gitpod.io'
+    ]
 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -169,7 +168,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 
 # Static files (CSS, JavaScript, Images)
