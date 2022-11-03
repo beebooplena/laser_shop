@@ -3,7 +3,8 @@ from django.db import models
 
 class Item(models.Model):
     """
-    Item model
+    Item model. Inspired from
+    the boutique ado project, code institute.
     """
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -27,6 +28,8 @@ class Item(models.Model):
 class Category(models.Model):
     """
     Category model
+    inspired from
+    the boutique ado project, code institute
     """
     class Meta:
         verbose_name_plural = 'Categories'

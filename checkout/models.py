@@ -11,7 +11,8 @@ from userprofiles.models import CustomerProfile
 
 class Ordering(models.Model):
     """
-    Model for Ordering
+    Model for Ordering, inspired from
+    the boutique ado project, code institute
     """
     ordering_number = models.CharField(
         max_length=32, null=False, editable=False
@@ -55,6 +56,8 @@ class Ordering(models.Model):
         """
         Update sum_total everytime a line item is added,
         accounting for discount and delivery cost.
+        inspired from
+        the boutique ado project, code institute
         """
         self.ordering_total = self.lineitems.aggregate(
             Sum('lineitem_sum'))['lineitem_sum__sum'] or 0

@@ -1,11 +1,15 @@
 from django import forms
 from .models import Item, Category
 
+
 class ItemForm(forms.ModelForm):
+    """
+    A form for the edit/Add items
+    """
     class Meta:
         model = Item
         fields = '__all__'
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()

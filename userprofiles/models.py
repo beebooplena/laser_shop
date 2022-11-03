@@ -7,7 +7,9 @@ from django.dispatch import receiver
 class CustomerProfile(models.Model):
     """
     A customer profile model for updating or creating
-    profile information and order history
+    profile information and order history.
+    inspired from
+    the boutique ado project, code institute
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_mobile_number = models.CharField(max_length=25,
