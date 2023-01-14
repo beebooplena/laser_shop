@@ -375,6 +375,7 @@ footer {
     left: 600px;
 }
 
+
 /* stripe css checkout. borrowed css from code institute,
     from the boutique ado project */
 
@@ -424,9 +425,10 @@ footer {
     }
 
     #mc_embed_signup {
-        width: 50%;
+        width: 71%;
         position: inherit;
-        margin-left: 40px;
+        margin-top: 400px;
+        margin-left: 60px;
     }
 
     .card-finish {
@@ -495,6 +497,10 @@ footer {
         font-size:small;
     }
 
+    .nav-link {
+        padding: 0%;
+    }
+
     .same {
         position: inherit;
         width: 100%;
@@ -561,6 +567,7 @@ footer {
         margin-right: 3px;
     }
 
+
     .same {
         position: inherit;
         width: 100%;
@@ -580,7 +587,7 @@ footer {
     }
 
     .nav-drop {
-        width: 30%;
+        width: 32%;
         left: 1px;
         height: 50px;
     }
@@ -589,6 +596,7 @@ footer {
         position: relative;
         right: 220px;
         top: 40px;
+        margin-right: 48px;
     }
 
     .card-form {
@@ -607,8 +615,9 @@ footer {
         }
 }
 
-/* style for the media queries 360px */
-@media screen and (max-width:360px) {
+
+/* style for the media queries 412px */
+@media screen and (max-width:412px) {
     body {
         height: auto;
     }
@@ -637,10 +646,10 @@ footer {
 
     .card-form {
         right: 100px;
-        width: 90%;
+        width: 80%;
         height: max-content;
         top: auto;
-        left: -15px;
+        left: 13px;
         bottom: 45px;
     }
 
@@ -697,14 +706,14 @@ footer {
         height: min-content;
         left: 20px;
         display: inline-table;
-        margin-right: 0px;
+        margin-right: 22px;
+        margin-top: 20px;
     }
     
     .blog-card {
-        left: 1px;
-        width: auto;
+        width: 100%;
         border-radius: 25px;
-        margin-bottom: 200px;
+        left: 48px;
     }
 
     .bag-place {
@@ -724,7 +733,7 @@ footer {
 
     .message-container {
         position: inherit;
-        right: 130px;
+        right: 80px;
     }
 
     .footer-link {
@@ -747,14 +756,13 @@ footer {
     }
    
     #mc_embed_signup {
-        width: 80%;
+        width: 71%;
         position: inherit;
-        margin-left: 40px;
-        margin-top: 420px;
-        margin-bottom: 200px;
+        margin-top: 400px;
+        margin-left: 60px;
     }
 
-   
+
     #mc_embed_signup form {
         width: 80%;
     }
@@ -780,7 +788,7 @@ footer {
         width: 90%;
         top: 2px;
         margin-bottom: 40px;
-        left: 180px;
+        left: 25px;
     }
 
     .add-blog {
@@ -793,12 +801,15 @@ footer {
 
     .card-profile {
         width: 80%;
+        left: 8px;
+        top: inherit;
         
     }
 
     .card-history {
-        width: auto;
+        width: 80%;
         right: 70px;
+        left: 10px;
 
     }
 
@@ -807,8 +818,13 @@ footer {
         margin-right: 35px;
     }
 
-    .mobile-style {
-        margin-right: 30px;
+    .card-finish {
+        width: 100%;
+        left: 48px;
     }
+    .mobile-style {
+        margin-right: 60px;
+    }
+
    
 }

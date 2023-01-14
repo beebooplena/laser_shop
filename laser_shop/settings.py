@@ -110,7 +110,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu73.gitpod.io'
+    'https://8000-beebooplena-lasershop-r6b4tgso7ty.ws-eu82.gitpod.io'
     ]
 
 
