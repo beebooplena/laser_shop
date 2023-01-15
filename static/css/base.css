@@ -373,6 +373,7 @@ footer {
     top: 185px;
     opacity: 95%;
     left: 600px;
+    margin-bottom: 100px;
 }
 
 
@@ -432,7 +433,6 @@ footer {
         margin-top: 400px;
         margin-left: 60px;
     }
-
 
     .card-finish {
         margin-bottom: 30px;
@@ -876,7 +876,7 @@ footer {
         left: 48px;
     }
     .mobile-style {
-        margin-right: 30px;
+        margin-right: 40px;
     }
 
     .update-mobile {
